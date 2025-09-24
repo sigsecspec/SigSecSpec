@@ -1,23 +1,23 @@
 /* SigSec Update Page Styles - Black, White, Grey, Emerald Green Theme */
 
 :root {
-  --primary-color: #10b981; /* Emerald green */
-  --primary-dark: #059669;
-  --primary-light: #34d399;
-  --secondary-color: #6b7280; /* Grey */
-  --text-primary: #111827; /* Black */
-  --text-secondary: #6b7280; /* Grey */
-  --text-light: #9ca3af; /* Light grey */
+  --primary-color: #aeae5a; /* Sage green */
+  --primary-dark: #535347; /* Ebony */
+  --primary-light: #c4c4c4; /* Silver */
+  --secondary-color: #787876; /* Gray */
+  --text-primary: #0f0f0f; /* Night black */
+  --text-secondary: #787876; /* Gray */
+  --text-light: #c4c4c4; /* Silver */
   --background-primary: #ffffff; /* White */
   --background-secondary: #f9fafb; /* Light grey */
-  --background-dark: #111827; /* Black */
-  --border-color: #e5e7eb; /* Light grey */
-  --border-dark: #374151; /* Dark grey */
-  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --glow-primary: 0 0 20px rgba(16, 185, 129, 0.5);
-  --glow-secondary: 0 0 15px rgba(107, 114, 128, 0.3);
-  --glow-intense: 0 0 30px rgba(16, 185, 129, 0.8);
+  --background-dark: #0f0f0f; /* Night black */
+  --border-color: #c4c4c4; /* Silver */
+  --border-dark: #535347; /* Ebony */
+  --shadow: 0 1px 3px 0 rgba(15, 15, 15, 0.1), 0 1px 2px 0 rgba(15, 15, 15, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 15, 15, 0.1), 0 4px 6px -2px rgba(15, 15, 15, 0.05);
+  --glow-primary: 0 0 20px rgba(174, 174, 90, 0.5);
+  --glow-secondary: 0 0 15px rgba(120, 120, 118, 0.3);
+  --glow-intense: 0 0 30px rgba(174, 174, 90, 0.8);
   --radius: 8px;
   --radius-lg: 12px;
 }
@@ -32,7 +32,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.6;
   color: var(--text-primary);
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  background: linear-gradient(135deg, #0f0f0f 0%, #535347 50%, #787876 100%);
   background-attachment: fixed;
   overflow-x: hidden;
   position: relative;
@@ -47,9 +47,9 @@ body::before {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(107, 114, 128, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 20% 80%, rgba(174, 174, 90, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(174, 174, 90, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 120, 118, 0.05) 0%, transparent 50%);
   animation: backgroundShift 20s ease-in-out infinite;
   z-index: -2;
 }
@@ -65,7 +65,7 @@ body::before {
 
 /* Header Styles */
 .header {
-  background: rgba(17, 24, 39, 0.95);
+  background: rgba(15, 15, 15, 0.95);
   backdrop-filter: blur(20px);
   color: var(--background-primary);
   padding: 1rem 0;
@@ -73,7 +73,7 @@ body::before {
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+  border-bottom: 1px solid rgba(174, 174, 90, 0.2);
 }
 
 /* Header content styles moved to mobile-first section */
@@ -84,6 +84,18 @@ body::before {
   gap: 0.5rem;
 }
 
+.logo-image {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  max-width: 60px;
+  object-fit: contain;
+}
+
 .logo-icon {
   font-size: 2rem;
 }
@@ -92,13 +104,13 @@ body::before {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--primary-color);
-  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  text-shadow: 0 0 10px rgba(174, 174, 90, 0.5);
   animation: logoGlow 3s ease-in-out infinite alternate;
 }
 
 @keyframes logoGlow {
-  0% { text-shadow: 0 0 10px rgba(16, 185, 129, 0.5); }
-  100% { text-shadow: 0 0 20px rgba(16, 185, 129, 0.8), 0 0 30px rgba(16, 185, 129, 0.3); }
+  0% { text-shadow: 0 0 10px rgba(174, 174, 90, 0.5); }
+  100% { text-shadow: 0 0 20px rgba(174, 174, 90, 0.8), 0 0 30px rgba(174, 174, 90, 0.3); }
 }
 
 /* Nav styles moved to mobile-first section */
@@ -112,7 +124,7 @@ body::before {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(174, 174, 90, 0.3), transparent);
   transition: left 0.5s ease;
 }
 
@@ -151,10 +163,27 @@ body::before {
   margin-bottom: 3rem;
   border-radius: var(--radius-lg);
   text-align: center;
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(174, 174, 90, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.1;
+  filter: grayscale(100%) brightness(0.3);
 }
 
 .hero::before {
@@ -164,7 +193,7 @@ body::before {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: conic-gradient(from 0deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+  background: conic-gradient(from 0deg, transparent, rgba(174, 174, 90, 0.1), transparent);
   animation: rotate 10s linear infinite;
   z-index: -1;
 }
@@ -1231,7 +1260,7 @@ body::before {
   font-weight: 700;
   color: var(--background-primary);
   margin-bottom: 1rem;
-  text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+  text-shadow: 0 0 20px rgba(174, 174, 90, 0.5);
   animation: titleFloat 4s ease-in-out infinite;
 }
 
