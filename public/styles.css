@@ -214,14 +214,14 @@ body {
 .section-header h3 {
   font-size: 24px;
   font-weight: 700;
-  color: var(--background-primary);
+  color: var(--text-primary);
   margin: 0;
   text-shadow: 0 0 15px rgba(174, 174, 90, 0.3);
 }
 
 .section-header p {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   margin: 0;
 }
 
@@ -276,11 +276,22 @@ body {
 
 .status-badge {
   padding: 6px 12px;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.overall-status {
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
 }
 
 .status-badge.active {
@@ -337,24 +348,69 @@ body {
     0 0 25px rgba(174, 174, 90, 0.15);
 }
 
+.version-card h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+  text-align: center;
+}
+
+.version-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+/* Card title styling */
+.app-status-card h4,
+.operation-item h4,
+.app-link-item h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
 .version-number {
   font-size: 18px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 6px;
+  margin: 0;
+  text-align: center;
+}
+
+.version-status {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.version-status.unreleased {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  color: white;
 }
 
 .version-date {
   font-size: 13px;
   color: var(--text-secondary);
-  margin-bottom: 10px;
+  margin: 0 0 10px 0;
   font-weight: 500;
+  text-align: center;
 }
 
 .version-notes {
   font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.5;
+  text-align: center;
+  margin: 0;
 }
 
 .version-card.test {
@@ -390,6 +446,11 @@ body {
 }
 
 .version-status.unavailable {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  color: white;
+}
+
+.overall-status.unreleased {
   background: linear-gradient(135deg, #6b7280, #4b5563);
   color: white;
 }
@@ -820,7 +881,7 @@ body {
   
   .footer-content {
     flex-direction: row;
-    justify-content: space-between;
+  justify-content: space-between;
     align-items: center;
     text-align: left;
   }

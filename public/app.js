@@ -15,19 +15,19 @@ class UpdatesApp {
     async init() {
         console.log('UpdatesApp init() called');
         try {
-            this.setupEventListeners();
+        this.setupEventListeners();
             console.log('Event listeners setup complete');
             
-            await this.loadAppStatus();
+        await this.loadAppStatus();
             console.log('App status loaded');
             
-            await this.loadOperationsStatus();
+        await this.loadOperationsStatus();
             console.log('Operations status loaded');
             
-            await this.loadAppLinks();
+        await this.loadAppLinks();
             console.log('App links loaded');
             
-            await this.loadUpdates();
+        await this.loadUpdates();
             console.log('Updates loaded');
             
             console.log('UpdatesApp initialization complete');
@@ -279,8 +279,8 @@ We appreciate your patience as we work to deliver a high-quality product that me
                         </div>
                         <p class="version-notes">${this.escapeHtml(app.versions.release.notes)}</p>
                         <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: December 1st, 2025</small>
-                    </div>
-                    
+                </div>
+                
                     <div class="version-card launch">
                         <h5>Launch Release</h5>
                         <div class="version-info">
@@ -340,13 +340,13 @@ We appreciate your patience as we work to deliver a high-quality product that me
         
         if (!container) {
             console.error('Operations container not found');
-            return;
-        }
-        
+                return;
+            }
+
         // Create individual cards for each category
         container.innerHTML = operations.map(category => `
-            <div class="operation-item">
-                <div class="operation-header">
+                        <div class="operation-item">
+                            <div class="operation-header">
                     <h4 class="operation-title">${this.escapeHtml(category.category)}</h4>
                     <span class="operation-status ${category.items && category.items.length > 0 ? 'active' : 'inactive'}">
                         ${category.items && category.items.length > 0 ? 'Active' : 'Pending'}
@@ -357,8 +357,8 @@ We appreciate your patience as we work to deliver a high-quality product that me
                         ? `${category.items.length} ${category.category.toLowerCase()} currently active`
                         : `${category.category} documentation and verification in progress`
                     }
-                </div>
-                <div class="operation-meta">
+                            </div>
+                                <div class="operation-meta">
                     <span>Status: ${category.items && category.items.length > 0 ? 'Documented' : 'In Progress'}</span>
                     <span>Last Updated: ${this.formatDate(new Date().toISOString())}</span>
                 </div>
@@ -368,8 +368,8 @@ We appreciate your patience as we work to deliver a high-quality product that me
 
     renderOperationsStatusError() {
         const container = document.getElementById('operations-container');
-        if (container) {
-            container.innerHTML = `
+            if (container) {
+                container.innerHTML = `
                 <div class="operation-item error">
                     <div class="operation-header">
                         <h4 class="operation-title">Unable to Load Operations Status</h4>
@@ -378,9 +378,9 @@ We appreciate your patience as we work to deliver a high-quality product that me
                     <div class="operation-description">
                         There was an error loading the operations status information. Please try again later.
                     </div>
-                </div>
-            `;
-        }
+                    </div>
+                `;
+            }
     }
 
     async loadAppLinks() {
@@ -530,7 +530,7 @@ We appreciate your patience as we work to deliver a high-quality product that me
         container.innerHTML = updates.map(update => `
             <article class="update-card">
                 <div class="update-header">
-                    <h3 class="update-title">${this.escapeHtml(update.title)}</h3>
+                        <h3 class="update-title">${this.escapeHtml(update.title)}</h3>
                     <div class="update-meta-bubbles">
                         <div class="meta-bubble type-bubble">
                             <span class="update-type ${update.type}">${this.escapeHtml(update.type)}</span>
@@ -789,7 +789,7 @@ function setupInitialization() {
     console.log('Setting up app initialization...');
     
     // Strategy 1: DOMContentLoaded
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
         console.log('DOM Content Loaded - initializing UpdatesApp');
         initializeApp();
     });
