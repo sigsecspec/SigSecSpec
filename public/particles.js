@@ -95,32 +95,68 @@ class ParticleSystem {
                 const dx = particle.x - otherParticle.x;
                 const dy = particle.y - otherParticle.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
-                const minDistance = (particle.size + otherParticle.size) / 2 + 10; // 10px buffer
+                const minDistance = (particle.size + otherParticle.size) / 2;
                 
                 if (distance < minDistance && distance > 0) {
-                    // Calculate collision response
-                    const overlap = minDistance - distance;
-                    const separationX = (dx / distance) * overlap * 0.5;
-                    const separationY = (dy / distance) * overlap * 0.5;
+                    // Calculate collision normal (unit vector from other to current particle)
+                    const nx = dx / distance;
+                    const ny = dy / distance;
                     
-                    // Separate particles
+                    // Separate particles to prevent overlap
+                    const overlap = minDistance - distance;
+                    const separationX = nx * overlap * 0.5;
+                    const separationY = ny * overlap * 0.5;
+                    
                     particle.x += separationX;
                     particle.y += separationY;
                     otherParticle.x -= separationX;
                     otherParticle.y -= separationY;
                     
-                    // Add slight repulsion force
-                    const repulsionForce = 0.02;
-                    particle.vx += (dx / distance) * repulsionForce;
-                    particle.vy += (dy / distance) * repulsionForce;
-                    otherParticle.vx -= (dx / distance) * repulsionForce;
-                    otherParticle.vy -= (dy / distance) * repulsionForce;
+                    // Calculate relative velocity
+                    const relativeVx = particle.vx - otherParticle.vx;
+                    const relativeVy = particle.vy - otherParticle.vy;
+                    
+                    // Calculate relative velocity in collision normal direction
+                    const speed = relativeVx * nx + relativeVy * ny;
+                    
+                    // Do not resolve if velocities are separating
+                    if (speed > 0) continue;
+                    
+                    // Calculate restitution (bounce factor)
+                    const restitution = 0.8;
+                    
+                    // Calculate impulse scalar
+                    const impulse = -(1 + restitution) * speed;
+                    
+                    // Apply impulse to velocities
+                    const impulseX = impulse * nx;
+                    const impulseY = impulse * ny;
+                    
+                    particle.vx += impulseX;
+                    particle.vy += impulseY;
+                    otherParticle.vx -= impulseX;
+                    otherParticle.vy -= impulseY;
                 }
             }
             
-            // Bounce off edges
-            if (particle.x < -particle.size || particle.x > this.canvas.width + particle.size) particle.vx *= -1;
-            if (particle.y < -particle.size || particle.y > this.canvas.height + particle.size) particle.vy *= -1;
+            // Bounce off edges with energy loss
+            const edgeRestitution = 0.9;
+            
+            if (particle.x < particle.size / 2) {
+                particle.x = particle.size / 2;
+                particle.vx = Math.abs(particle.vx) * edgeRestitution;
+            } else if (particle.x > this.canvas.width - particle.size / 2) {
+                particle.x = this.canvas.width - particle.size / 2;
+                particle.vx = -Math.abs(particle.vx) * edgeRestitution;
+            }
+            
+            if (particle.y < particle.size / 2) {
+                particle.y = particle.size / 2;
+                particle.vy = Math.abs(particle.vy) * edgeRestitution;
+            } else if (particle.y > this.canvas.height - particle.size / 2) {
+                particle.y = this.canvas.height - particle.size / 2;
+                particle.vy = -Math.abs(particle.vy) * edgeRestitution;
+            }
             
             // Mouse interaction
             const dx = this.mouse.x - particle.x;
@@ -133,9 +169,6 @@ class ParticleSystem {
                 particle.vy += (dy / distance) * force * 0.005;
             }
             
-            // Keep particles in bounds
-            particle.x = Math.max(-particle.size, Math.min(this.canvas.width + particle.size, particle.x));
-            particle.y = Math.max(-particle.size, Math.min(this.canvas.height + particle.size, particle.y));
         });
     }
 
