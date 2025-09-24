@@ -99,6 +99,26 @@
                 
                 <div id="updates-container" class="updates-container">
                     <div class="loading">Loading updates...</div>
+                    <!-- Fallback content in case JavaScript doesn't load -->
+                    <noscript>
+                        <div class="update-card">
+                            <h3>Development Progress Update</h3>
+                            <div class="update-meta">
+                                <span class="update-type update">update</span>
+                                <span class="update-date">September 18, 2025</span>
+                                <span class="update-author">by Development Team</span>
+                                <span class="update-priority high">high</span>
+                            </div>
+                            <div class="update-content">We are working diligently on getting the website and mobile app developed for testing as fast as possible. Our development team is working around the clock to ensure we meet our target milestones:
+
+• Test Version v1.0.0 - October 1st, 2025
+• Beta Version v1.0.0 - November 1st, 2025
+• Release Version v1.0.0 - December 1st, 2025
+• Launch Version v1.0.0 - January 1st, 2026
+
+We appreciate your patience as we work to deliver a high-quality product that meets our standards.</div>
+                        </div>
+                    </noscript>
                 </div>
                 
                 <div class="pagination">
@@ -116,6 +136,44 @@
                 </div>
                 <div id="app-status-container" class="app-status-container">
                     <div class="loading">Loading app status...</div>
+                    <!-- Fallback content in case JavaScript doesn't load -->
+                    <noscript>
+                        <div class="app-status-card">
+                            <div class="app-header">
+                                <h4>SigSecSpec</h4>
+                                <span class="overall-status unreleased">unreleased</span>
+                            </div>
+                            <div class="version-grid">
+                                <div class="version-card test">
+                                    <h5>Test</h5>
+                                    <div class="version-info">
+                                        <span class="version-number">v1.0.0</span>
+                                        <span class="version-status unreleased">unreleased</span>
+                                    </div>
+                                    <p class="version-notes">Internal testing phase - not ready for public release</p>
+                                    <small class="version-date">Updated: February 15, 2024</small>
+                                </div>
+                                <div class="version-card beta">
+                                    <h5>Beta</h5>
+                                    <div class="version-info">
+                                        <span class="version-number">v1.0.0</span>
+                                        <span class="version-status unreleased">unreleased</span>
+                                    </div>
+                                    <p class="version-notes">Beta version not yet available</p>
+                                    <small class="version-date">Updated: February 15, 2024</small>
+                                </div>
+                                <div class="version-card release">
+                                    <h5>Release</h5>
+                                    <div class="version-info">
+                                        <span class="version-number">v1.0.0</span>
+                                        <span class="version-status unreleased">unreleased</span>
+                                    </div>
+                                    <p class="version-notes">Production release pending final testing and approval</p>
+                                    <small class="version-date">Updated: February 15, 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                    </noscript>
                 </div>
             </section>
 
@@ -127,6 +185,13 @@
                 </div>
                 <div id="licenses-container" class="operations-container">
                     <div class="loading">Loading licenses status...</div>
+                    <!-- Fallback content in case JavaScript doesn't load -->
+                    <noscript>
+                        <div class="status-card">
+                            <h4>No Licenses Data Available</h4>
+                            <p>Licenses status information will appear here once available.</p>
+                        </div>
+                    </noscript>
                 </div>
             </section>
 
@@ -138,6 +203,13 @@
                 </div>
                 <div id="insurance-container" class="operations-container">
                     <div class="loading">Loading insurance status...</div>
+                    <!-- Fallback content in case JavaScript doesn't load -->
+                    <noscript>
+                        <div class="status-card">
+                            <h4>No Insurance Data Available</h4>
+                            <p>Insurance status information will appear here once available.</p>
+                        </div>
+                    </noscript>
                 </div>
             </section>
 
@@ -149,6 +221,13 @@
                 </div>
                 <div id="certifications-container" class="operations-container">
                     <div class="loading">Loading certifications status...</div>
+                    <!-- Fallback content in case JavaScript doesn't load -->
+                    <noscript>
+                        <div class="status-card">
+                            <h4>No Certifications Data Available</h4>
+                            <p>Certifications status information will appear here once available.</p>
+                        </div>
+                    </noscript>
                 </div>
             </section>
 
@@ -160,6 +239,13 @@
                 </div>
                 <div id="permits-container" class="operations-container">
                     <div class="loading">Loading permits status...</div>
+                    <!-- Fallback content in case JavaScript doesn't load -->
+                    <noscript>
+                        <div class="status-card">
+                            <h4>No Permits Data Available</h4>
+                            <p>Permits status information will appear here once available.</p>
+                        </div>
+                    </noscript>
                 </div>
             </section>
 
@@ -171,6 +257,29 @@
                 </div>
                 <div id="app-links" class="app-links">
                     <div class="loading">Loading download links...</div>
+                    <!-- Fallback content in case JavaScript doesn't load -->
+                    <noscript>
+                        <div class="app-link-card">
+                            <h4>iOS</h4>
+                            <div class="version">Version 1.0.0</div>
+                            <div class="file-size">25.4 MB</div>
+                            <button class="download-btn" onclick="alert('App currently unavailable - in development')">Download</button>
+                            <details class="mt-2">
+                                <summary style="cursor: pointer; color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Release Notes</summary>
+                                <div style="margin-top: 0.5rem; color: var(--background-primary); font-size: 0.9rem; white-space: pre-wrap;">Initial release with core security features and real-time notifications.</div>
+                            </details>
+                        </div>
+                        <div class="app-link-card">
+                            <h4>Android</h4>
+                            <div class="version">Version 1.0.0</div>
+                            <div class="file-size">28.7 MB</div>
+                            <button class="download-btn" onclick="alert('App currently unavailable - in development')">Download</button>
+                            <details class="mt-2">
+                                <summary style="cursor: pointer; color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Release Notes</summary>
+                                <div style="margin-top: 0.5rem; color: var(--background-primary); font-size: 0.9rem; white-space: pre-wrap;">Initial release with core security features and real-time notifications.</div>
+                            </details>
+                        </div>
+                    </noscript>
                 </div>
             </section>
 
@@ -189,5 +298,50 @@
     <script src="public/particles.js"></script>
     <script src="public/floating-elements.js"></script>
     <script src="public/app.js"></script>
+    
+    <!-- Final safety check to ensure content is always visible -->
+    <script>
+        // Emergency fallback - if nothing loads after 5 seconds, show content
+        setTimeout(function() {
+            const loadingElements = document.querySelectorAll('.loading');
+            let stillLoading = false;
+            
+            loadingElements.forEach(el => {
+                if (el.style.display !== 'none' && el.offsetParent !== null) {
+                    stillLoading = true;
+                }
+            });
+            
+            if (stillLoading) {
+                console.log('Emergency fallback triggered - showing content');
+                
+                // Hide all loading messages
+                loadingElements.forEach(el => {
+                    el.style.display = 'none';
+                });
+                
+                // Show noscript content
+                const noscriptElements = document.querySelectorAll('noscript');
+                noscriptElements.forEach(noscript => {
+                    const fallbackContent = noscript.innerHTML;
+                    noscript.parentNode.insertAdjacentHTML('beforeend', fallbackContent);
+                });
+                
+                // Add emergency message
+                const mainContent = document.querySelector('.main .container');
+                if (mainContent) {
+                    const emergencyDiv = document.createElement('div');
+                    emergencyDiv.className = 'status-card error';
+                    emergencyDiv.style.marginBottom = '2rem';
+                    emergencyDiv.innerHTML = `
+                        <h4>⚠️ Loading Timeout</h4>
+                        <p>The interactive features are taking longer than expected to load. The content above shows the latest available information.</p>
+                        <p><strong>If you continue to see this message:</strong> Try refreshing the page or check your internet connection.</p>
+                    `;
+                    mainContent.insertBefore(emergencyDiv, mainContent.firstChild);
+                }
+            }
+        }, 5000);
+    </script>
 </body>
 </html>
