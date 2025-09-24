@@ -74,10 +74,10 @@ class UpdatesApp {
                     <div class="version-grid">
                         <div class="version-card test">
                             <h5>Test</h5>
-                            <div class="version-info">
-                                <span class="version-number">v1.0.0</span>
-                                <span class="version-status unreleased">unreleased</span>
-                            </div>
+                             <div class="version-info">
+                                 <span class="version-number">v1.0.0</span>
+                                 <span class="version-status development">In Development</span>
+                             </div>
                             <p class="version-notes">Internal testing phase - not ready for public release</p>
                             <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: October 1st, 2025</small>
                         </div>
@@ -186,14 +186,14 @@ We appreciate your patience as we work to deliver a high-quality product that me
         const appStatus = [
             {
                 id: 1,
-                name: "SigSecSpec",
+                name: "Version 1.0.0",
                 versions: {
-                    test: {
-                        version: "v1.0.0",
-                        status: "unreleased",
-                        last_updated: "2024-02-15T10:00:00Z",
-                        notes: "Internal testing phase - not ready for public release"
-                    },
+                     test: {
+                         version: "v1.0.0",
+                         status: "in development",
+                         last_updated: "2024-02-15T10:00:00Z",
+                         notes: "Internal testing phase - not ready for public release"
+                     },
                     beta: {
                         version: "v1.0.0",
                         status: "unreleased",
@@ -400,7 +400,7 @@ We appreciate your patience as we work to deliver a high-quality product that me
                 android_files: [
                     {
                         type: "APK",
-                        url: "android/sigsec-app.apk",
+                        url: "public/android/Signature Security Specialist.apk",
                         size: "28.7 MB",
                         description: "Direct APK installation file"
                     }
@@ -797,7 +797,7 @@ function showAndroidDownloadModal() {
                     <span style="font-size: clamp(13px, 2.5vw, 14px); color: var(--text-secondary); font-weight: 500; display: block; margin-bottom: 8px;">28.7 MB</span>
                     <p style="font-size: clamp(12px, 2.5vw, 13px); color: var(--text-secondary); margin: 0; line-height: 1.4;">Direct APK installation file</p>
                 </div>
-                <a href="android/sigsec-app.apk" class="download-btn" download style="
+                <a href="public/android/Signature Security Specialist.apk" class="download-btn" download style="
                     width: 100%;
                     background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
                     color: var(--background-primary);
