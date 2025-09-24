@@ -181,46 +181,29 @@ We appreciate your patience as we work to deliver a high-quality product that me
     }
 
     async loadAppStatus() {
-        console.log('loadAppStatus() called');
-        // Manual app status data - update directly in code
-        const appStatus = [
-            {
-                id: 1,
-                name: "Version 1.0.0",
-                versions: {
-                     test: {
-                         version: "v1.0.0",
-                         status: "in development",
-                         last_updated: "2024-02-15T10:00:00Z",
-                         notes: "Internal testing phase - not ready for public release"
-                     },
-                    beta: {
-                        version: "v1.0.0",
-                        status: "unreleased",
-                        last_updated: "2024-02-15T10:00:00Z",
-                        notes: "Beta version not yet available"
-                    },
-                    release: {
-                        version: "v1.0.0",
-                        status: "unreleased",
-                        last_updated: "2024-02-15T10:00:00Z",
-                        notes: "Production release pending final testing and approval"
-                    },
-                    launch: {
-                        version: "v1.0.0",
-                        status: "unreleased",
-                        last_updated: "2024-02-15T10:00:00Z",
-                        notes: "Full public launch with all features and services"
-                    }
-                },
-                overall_status: "unreleased",
-                next_milestone: "Test Version v1.0.0",
-                target_date: "2025-10-01T00:00:00Z"
+        console.log('loadAppStatus() called - fetching fresh data');
+        try {
+            const response = await fetch('/api/app-status', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Cache-Control': 'no-cache, no-store, must-revalidate',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
+                }
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        ];
-        
-        console.log('App status data:', appStatus);
-        this.renderAppStatus(appStatus);
+            
+            const appStatus = await response.json();
+            console.log('Fresh app status data:', appStatus);
+            this.renderAppStatus(appStatus);
+        } catch (error) {
+            console.error('Error loading app status:', error);
+            this.renderAppStatusError();
+        }
     }
 
     renderAppStatus(appStatus) {
@@ -306,32 +289,29 @@ We appreciate your patience as we work to deliver a high-quality product that me
     }
 
     async loadOperationsStatus() {
-        console.log('loadOperationsStatus() called');
-        // Manual operations status data - update directly in code
-        const operations = [
-            {
-                id: 1,
-                category: "Licenses",
-                items: []
-            },
-            {
-                id: 2,
-                category: "Insurance",
-                items: []
-            },
-            {
-                id: 3,
-                category: "Certifications",
-                items: []
-            },
-            {
-                id: 4,
-                category: "Permits",
-                items: []
+        console.log('loadOperationsStatus() called - fetching fresh data');
+        try {
+            const response = await fetch('/api/operations', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Cache-Control': 'no-cache, no-store, must-revalidate',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
+                }
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        ];
-        
-        this.renderOperationsStatus(operations);
+            
+            const operations = await response.json();
+            console.log('Fresh operations data:', operations);
+            this.renderOperationsStatus(operations);
+        } catch (error) {
+            console.error('Error loading operations:', error);
+            this.renderOperationsError();
+        }
     }
 
     renderOperationsStatus(operations) {
@@ -384,42 +364,29 @@ We appreciate your patience as we work to deliver a high-quality product that me
     }
 
     async loadAppLinks() {
-        console.log('loadAppLinks() called');
-        // Manual app links data - update directly in code
-        const appLinks = [
-            {
-                id: 1,
-                platform: "Android",
-                download_url: "https://play.google.com/store/apps/details?id=com.sigsec.app",
-                version: "1.0.0",
-                file_size: "28.7 MB",
-                release_notes: "Download the Android app in APK format",
-                is_active: false,
-                created_at: "2024-01-25T09:00:00Z",
-                status_type: "development",
-                android_files: [
-                    {
-                        type: "APK",
-                        url: "public/android/Signature Security Specialist.apk",
-                        size: "28.7 MB",
-                        description: "Direct APK installation file"
-                    }
-                ]
-            },
-            {
-                id: 2,
-                platform: "iOS",
-                download_url: "https://apps.apple.com/app/sigsec/id123456789",
-                version: "1.0.0",
-                file_size: "25.4 MB",
-                release_notes: "App currently unavailable - in development",
-                is_active: false,
-                created_at: "2024-01-25T09:00:00Z",
-                status_type: "unavailable"
+        console.log('loadAppLinks() called - fetching fresh data');
+        try {
+            const response = await fetch('/api/app-links', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Cache-Control': 'no-cache, no-store, must-revalidate',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
+                }
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        ];
-        
-        this.renderAppLinks(appLinks);
+            
+            const appLinks = await response.json();
+            console.log('Fresh app links data:', appLinks);
+            this.renderAppLinks(appLinks);
+        } catch (error) {
+            console.error('Error loading app links:', error);
+            this.renderAppLinksError();
+        }
     }
 
     renderAppLinks(appLinks) {
@@ -510,37 +477,45 @@ We appreciate your patience as we work to deliver a high-quality product that me
     }
 
     async loadUpdates() {
-        console.log('loadUpdates() called');
-        // Manual updates data - update directly in code
-        const allUpdates = [
-            {
-                id: 2,
-                title: "Development Progress Update",
-                content: "We are working diligently on getting the website and mobile app developed for testing as fast as possible. Our development team is working around the clock to ensure we meet our target milestones:\n\n• Test Version v1.0.0 - October 1st, 2025\n• Beta Version v1.0.0 - November 1st, 2025\n• Release Version v1.0.0 - December 1st, 2025\n• Launch Version v1.0.0 - January 1st, 2026\n\nWe appreciate your patience as we work to deliver a high-quality product that meets our standards.",
-                type: "update",
-                priority: "high",
-                author: "Development Team",
-                created_at: "2025-09-18T07:16:00Z",
-                is_published: true
+        console.log('loadUpdates() called - fetching fresh data');
+        try {
+            const response = await fetch('/api/updates', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Cache-Control': 'no-cache, no-store, must-revalidate',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
+                }
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        ];
-        
-        // Store all updates for client-side filtering and pagination
-        this.allUpdates = allUpdates.filter(update => update.is_published);
-        
-        // Apply filtering
-        let filteredUpdates = this.allUpdates;
-        if (this.currentType) {
-            filteredUpdates = this.allUpdates.filter(update => update.type === this.currentType);
+            
+            const allUpdates = await response.json();
+            console.log('Fresh updates data:', allUpdates);
+            
+            // Store all updates for client-side filtering and pagination
+            this.allUpdates = allUpdates.filter(update => update.is_published);
+            
+            // Apply filtering
+            let filteredUpdates = this.allUpdates;
+            if (this.currentType) {
+                filteredUpdates = this.allUpdates.filter(update => update.type === this.currentType);
+            }
+            
+            // Apply pagination
+            const startIndex = (this.currentPage - 1) * this.updatesPerPage;
+            const endIndex = startIndex + this.updatesPerPage;
+            const paginatedUpdates = filteredUpdates.slice(startIndex, endIndex);
+            
+            this.renderUpdates(paginatedUpdates);
+            this.updatePagination(filteredUpdates.length);
+        } catch (error) {
+            console.error('Error loading updates:', error);
+            this.renderUpdatesError();
         }
-        
-        // Apply pagination
-        const startIndex = (this.currentPage - 1) * this.updatesPerPage;
-        const endIndex = startIndex + this.updatesPerPage;
-        const paginatedUpdates = filteredUpdates.slice(startIndex, endIndex);
-        
-        this.renderUpdates(paginatedUpdates);
-        this.updatePagination(filteredUpdates.length);
     }
 
     renderUpdates(updates) {
