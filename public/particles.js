@@ -59,7 +59,7 @@ class ParticleSystem {
                 y: Math.random() * this.canvas.height,
                 vx: (Math.random() - 0.5) * 0.2,
                 vy: (Math.random() - 0.5) * 0.2,
-                size: Math.random() * 360 + 120, // Different sizes from 120-480 pixels
+                size: Math.random() * 270 + 90, // Different sizes from 90-360 pixels
                 opacity: Math.random() * 0.4 + 0.1,
                 rotation: Math.random() * Math.PI * 2,
                 rotationSpeed: (Math.random() - 0.5) * 0.01,
@@ -119,7 +119,7 @@ class ParticleSystem {
             this.ctx.translate(particle.x, particle.y);
             this.ctx.rotate(particle.rotation);
             
-            const currentSize = particle.size + Math.sin(particle.pulse) * 18;
+            const currentSize = particle.size + Math.sin(particle.pulse) * 13.5;
             const currentOpacity = particle.opacity + Math.sin(particle.pulse) * 0.05;
             
             if (this.patchImage && this.patchImage.complete) {
