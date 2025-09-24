@@ -79,7 +79,7 @@ class UpdatesApp {
                                 <span class="version-status unreleased">unreleased</span>
                             </div>
                             <p class="version-notes">Internal testing phase - not ready for public release</p>
-                            <small class="version-date">Updated: February 15, 2024</small>
+                            <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: October 1st, 2025</small>
                         </div>
                     </div>
                 </div>
@@ -252,7 +252,7 @@ We appreciate your patience as we work to deliver a high-quality product that me
                             <span class="version-status ${app.versions.test.status}">${this.escapeHtml(app.versions.test.status)}</span>
                         </div>
                         <p class="version-notes">${this.escapeHtml(app.versions.test.notes)}</p>
-                        <small class="version-date">Updated: ${this.formatDate(app.versions.test.last_updated)}</small>
+                        <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: October 1st, 2025</small>
                     </div>
                     
                     <div class="version-card beta">
@@ -262,7 +262,7 @@ We appreciate your patience as we work to deliver a high-quality product that me
                             <span class="version-status ${app.versions.beta.status}">${this.escapeHtml(app.versions.beta.status)}</span>
                         </div>
                         <p class="version-notes">${this.escapeHtml(app.versions.beta.notes)}</p>
-                        <small class="version-date">Updated: ${this.formatDate(app.versions.beta.last_updated)}</small>
+                        <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: November 1st, 2025</small>
                     </div>
                     
                     <div class="version-card release">
@@ -272,29 +272,7 @@ We appreciate your patience as we work to deliver a high-quality product that me
                             <span class="version-status ${app.versions.release.status}">${this.escapeHtml(app.versions.release.status)}</span>
                         </div>
                         <p class="version-notes">${this.escapeHtml(app.versions.release.notes)}</p>
-                        <small class="version-date">Updated: ${this.formatDate(app.versions.release.last_updated)}</small>
-                    </div>
-                </div>
-                
-                <div class="app-milestone">
-                    <h5>Development Milestones</h5>
-                    <div class="milestone-timeline">
-                        <div class="milestone-item">
-                            <span class="milestone-label">Test v1.0.0</span>
-                            <span class="milestone-date">Oct 1, 2025</span>
-                        </div>
-                        <div class="milestone-item">
-                            <span class="milestone-label">Beta v1.0.0</span>
-                            <span class="milestone-date">Nov 1, 2025</span>
-                        </div>
-                        <div class="milestone-item">
-                            <span class="milestone-label">Release v1.0.0</span>
-                            <span class="milestone-date">Dec 1, 2025</span>
-                        </div>
-                        <div class="milestone-item">
-                            <span class="milestone-label">Launch v1.0.0</span>
-                            <span class="milestone-date">Jan 1, 2026</span>
-                        </div>
+                        <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: December 1st, 2025</small>
                     </div>
                 </div>
             </div>
