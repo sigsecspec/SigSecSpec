@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SigSec - Operations Admin Guide</title>
+    <link rel="stylesheet" href="public/styles.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    <style>
+        .admin-guide {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .guide-section {
+            background: var(--background-primary);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+        .guide-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .code-block {
+            background: var(--background-dark);
+            color: var(--background-primary);
+            padding: 1rem;
+            border-radius: var(--radius);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        .step {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--primary-color);
+        }
+        .step h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .json-example {
+            background: var(--background-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+        .warning {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin: 1rem 0;
+            color: #92400e;
+        }
+        .success {
+            background: #d1fae5;
+            border: 1px solid var(--primary-color);
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin: 1rem 0;
+            color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🛡️</span>
+                    <h1>SigSec Operations Admin</h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Operations Status</a>
+                    <a href="#guide" class="nav-link active">Admin Guide</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="admin-guide">
+            <div class="guide-section">
+                <h2>🛡️ SigSec Operations Status - Manual Update Guide</h2>
+                <p>This is a simple static website. All updates are done by editing the JavaScript code directly in <code>public/app.js</code>.</p>
+            </div>
+
+            <div class="guide-section">
+                <h3>📱 Managing App Status</h3>
+                <div class="step">
+                    <h4>Step 1: Edit JavaScript File</h4>
+                    <p>Open <code>public/app.js</code> and find the <code>loadAppStatus()</code> function around line 78.</p>
+                </div>
+                
+                <div class="step">
+                    <h4>Step 2: Update App Status Data</h4>
+                    <p>Edit the hardcoded app status data directly in the JavaScript:</p>
+                    <div class="json-example">
+// Manual app status data - update directly in code
+const appStatus = [
+    {
+        id: 1,
+        name: "SigSec Website",
+        type: "website",
+        versions: {
+            test: {
+                version: "v1.0.0",
+                status: "unreleased",
+                last_updated: "2024-02-15T10:00:00Z",
+                notes: "Internal testing phase"
+            },
+            beta: {
+                version: "v1.0.0", 
+                status: "active",
+                last_updated: "2024-02-10T14:30:00Z",
+                notes: "Beta testing with select clients"
+            },
+            release: {
+                version: "v1.0.0",
+                status: "unreleased", 
+                last_updated: "2024-02-15T10:00:00Z",
+                notes: "Production release pending"
+            }
+        },
+        overall_status: "development",
+        next_milestone: "Public Beta Release",
+        target_date: "2024-03-01T00:00:00Z"
+    }
+];
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-section">
+                <h3>🏢 Managing Operations Status</h3>
+                <div class="step">
+                    <h4>Step 1: Edit JavaScript File</h4>
+                    <p>Open <code>public/app.js</code> and find the <code>loadOperationsStatus()</code> function around line 214.</p>
+                </div>
+                
+                <div class="step">
+                    <h4>Step 2: Update Operations Data</h4>
+                    <p>Edit the hardcoded operations data directly in the JavaScript:</p>
+                    <div class="json-example">
+// Manual operations status data - update directly in code
+const operations = [
+    {
+        id: 1,
+        category: "Licenses",
+        items: [
+            {
+                name: "Business License",
+                status: "active",
+                expiry_date: "2024-12-31T00:00:00Z",
+                last_updated: "2024-01-15T10:00:00Z",
+                notes: "Annual business license - renewed for 2024"
+            }
+        ]
+    }
+];
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-section">
+                <h3>📝 Adding Important Information</h3>
+                <div class="step">
+                    <h4>Step 1: Edit JavaScript File</h4>
+                    <p>Open <code>public/app.js</code> and find the <code>loadUpdates()</code> function around line 429.</p>
+                </div>
+                
+                <div class="step">
+                    <h4>Step 2: Add Your Update</h4>
+                    <p>Add a new update object to the array. Here's the format:</p>
+                    <div class="json-example">
+// Manual updates data - update directly in code
+const allUpdates = [
+    {
+        id: 6,
+        title: "Your Update Title",
+        content: "Your update content here.\n\nYou can use line breaks and formatting.",
+        version: "v1.2.1",
+        type: "update",
+        priority: "normal",
+        author: "Your Name",
+        created_at: "2024-02-15T10:00:00Z",
+        is_published: true
+    }
+];
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h4>Step 4: Update Types</h4>
+                    <p>Choose from these update types:</p>
+                    <ul>
+                        <li><code>"update"</code> - General updates</li>
+                        <li><code>"feature"</code> - New features</li>
+                        <li><code>"bugfix"</code> - Bug fixes</li>
+                        <li><code>"security"</code> - Security updates</li>
+                        <li><code>"maintenance"</code> - Maintenance announcements</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <h4>Step 5: Priority Levels</h4>
+                    <p>Set the priority:</p>
+                    <ul>
+                        <li><code>"normal"</code> - Regular updates</li>
+                        <li><code>"high"</code> - Important updates</li>
+                        <li><code>"urgent"</code> - Critical updates</li>
+                    </ul>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ Important:</strong> Make sure to use the next available ID number and maintain proper JSON formatting. Invalid JSON will break the site.
+                </div>
+            </div>
+
+            <div class="guide-section">
+                <h3>📱 Managing App Download Links</h3>
+                <div class="step">
+                    <h4>Step 1: Navigate to App Links File</h4>
+                    <p>Go to: <code>data/app-links.json</code></p>
+                </div>
+                
+                <div class="step">
+                    <h4>Step 2: Add or Update App Links</h4>
+                    <p>Add new platforms or update existing ones:</p>
+                    <div class="json-example">
+{
+  "id": 6,
+  "platform": "Linux",
+  "download_url": "https://github.com/sigsec/releases/download/v1.0.0/sigsec-linux.tar.gz",
+  "version": "1.0.0",
+  "file_size": "38.5 MB",
+  "release_notes": "Linux version with command-line tools and GUI support.",
+  "is_active": true,
+  "created_at": "2024-02-15T10:00:00Z"
+}
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h4>Step 3: Supported Platforms</h4>
+                    <p>Common platform names:</p>
+                    <ul>
+                        <li><code>"iOS"</code> - Apple App Store</li>
+                        <li><code>"Android"</code> - Google Play Store</li>
+                        <li><code>"Windows"</code> - Windows desktop</li>
+                        <li><code>"macOS"</code> - Mac desktop</li>
+                        <li><code>"Linux"</code> - Linux desktop</li>
+                        <li><code>"Web"</code> - Web application</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-section">
+                <h3>🚀 Publishing Changes</h3>
+                <div class="step">
+                    <h4>Step 1: Save Your Changes</h4>
+                    <p>After editing the JavaScript file:</p>
+                    <ol>
+                        <li>Save the <code>public/app.js</code> file</li>
+                        <li>Upload to your web server or GitHub Pages</li>
+                        <li>Changes will appear immediately on your static site</li>
+                    </ol>
+                </div>
+
+                <div class="success">
+                    <strong>✅ Success!</strong> Your updates will now appear on your static website.
+                </div>
+            </div>
+
+            <div class="guide-section">
+                <h3>🔧 Tips and Best Practices</h3>
+                <ul>
+                    <li><strong>Always backup:</strong> Copy the current JavaScript content before making changes</li>
+                    <li><strong>Test locally:</strong> Open the HTML file in a browser to test changes</li>
+                    <li><strong>Use consistent formatting:</strong> Follow the existing structure</li>
+                    <li><strong>Version numbers:</strong> Use semantic versioning (v1.2.3)</li>
+                    <li><strong>Dates:</strong> Use ISO 8601 format (2024-02-15T10:00:00Z)</li>
+                    <li><strong>Content:</strong> Use \n for line breaks in content</li>
+                </ul>
+            </div>
+
+            <div class="guide-section">
+                <h3>🆘 Troubleshooting</h3>
+                <div class="step">
+                    <h4>Site Not Loading?</h4>
+                    <p>Check for JavaScript syntax errors. Common issues:</p>
+                    <ul>
+                        <li>Missing commas between objects</li>
+                        <li>Unescaped quotes in text</li>
+                        <li>Trailing commas in arrays</li>
+                        <li>Missing closing brackets</li>
+                    </ul>
+                </div>
+                
+                <div class="step">
+                    <h4>Updates Not Appearing?</h4>
+                    <p>Make sure:</p>
+                    <ul>
+                        <li><code>is_published: true</code> is set</li>
+                        <li>The JavaScript file was saved</li>
+                        <li>Browser cache is cleared</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-section">
+                <h3>📞 Support</h3>
+                <p>If you need help or encounter issues:</p>
+                <ul>
+                    <li>Check the browser console for JavaScript errors</li>
+                    <li>Validate your JavaScript syntax</li>
+                    <li>Review the file to see what changed</li>
+                    <li>Contact the development team for assistance</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 SigSec. Admin Guide</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

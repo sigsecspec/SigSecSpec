@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SigSecSpec</title>
+    <link rel="stylesheet" href="public/styles.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🛡️</span>
+                    <h1>Signature Security Specialties</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#app-status" class="nav-link active">App Status</a>
+                    <a href="#licenses" class="nav-link">Licenses</a>
+                    <a href="#insurance" class="nav-link">Insurance</a>
+                    <a href="#certifications" class="nav-link">Certifications</a>
+                    <a href="#permits" class="nav-link">Permits</a>
+                    <a href="#download" class="nav-link">Download</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Company Operations Status</h2>
+                    <p>Real-time status of our website, applications, and company operations for employees and clients.</p>
+                </div>
+            </section>
+
+            <!-- Important Information Section -->
+            <section id="updates" class="updates-section">
+                <div class="section-header">
+                    <h3>Important Information</h3>
+                    <div class="filter-controls">
+                        <select id="type-filter" class="filter-select">
+                            <option value="">All Updates</option>
+                            <option value="update">General Updates</option>
+                            <option value="feature">New Features</option>
+                            <option value="bugfix">Bug Fixes</option>
+                            <option value="security">Security Updates</option>
+                            <option value="maintenance">Maintenance</option>
+                            <option value="operations">Operations</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="updates-container" class="updates-container">
+                    <div class="loading">Loading updates...</div>
+                </div>
+                
+                <div class="pagination">
+                    <button id="prev-page" class="pagination-btn" disabled>Previous</button>
+                    <span id="page-info" class="page-info">Page 1</span>
+                    <button id="next-page" class="pagination-btn">Next</button>
+                </div>
+            </section>
+
+            <!-- App Status Section -->
+            <section id="app-status" class="app-status-section">
+                <div class="section-header">
+                    <h3>Website & App Status</h3>
+                    <p>Current development status of our digital platforms</p>
+                </div>
+                <div id="app-status-container" class="app-status-container">
+                    <div class="loading">Loading app status...</div>
+                </div>
+            </section>
+
+            <!-- Licenses Section -->
+            <section id="licenses" class="operations-section">
+                <div class="section-header">
+                    <h3>Licenses</h3>
+                    <p>Business licenses</p>
+                </div>
+                <div id="licenses-container" class="operations-container">
+                    <div class="loading">Loading licenses status...</div>
+                </div>
+            </section>
+
+            <!-- Insurance Section -->
+            <section id="insurance" class="operations-section">
+                <div class="section-header">
+                    <h3>Insurance</h3>
+                    <p>Business insurance coverage</p>
+                </div>
+                <div id="insurance-container" class="operations-container">
+                    <div class="loading">Loading insurance status...</div>
+                </div>
+            </section>
+
+            <!-- Certifications Section -->
+            <section id="certifications" class="operations-section">
+                <div class="section-header">
+                    <h3>Certifications</h3>
+                    <p>Compliance certifications</p>
+                </div>
+                <div id="certifications-container" class="operations-container">
+                    <div class="loading">Loading certifications status...</div>
+                </div>
+            </section>
+
+            <!-- Permits Section -->
+            <section id="permits" class="operations-section">
+                <div class="section-header">
+                    <h3>Permits</h3>
+                    <p>Data processing, cloud services, and export control permits</p>
+                </div>
+                <div id="permits-container" class="operations-container">
+                    <div class="loading">Loading permits status...</div>
+                </div>
+            </section>
+
+            <!-- App Download Section -->
+            <section id="download" class="download-section">
+                <div class="section-header">
+                    <h3>Download Official App</h3>
+                    <p>Get the latest version of the SigSec mobile application</p>
+                </div>
+                <div id="app-links" class="app-links">
+                    <div class="loading">Loading download links...</div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 SigSec. All rights reserved.</p>
+                <p>Company Operations Status Portal</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="public/particles.js"></script>
+    <script src="public/floating-elements.js"></script>
+    <script src="public/app.js"></script>
+</body>
+</html>

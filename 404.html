@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - SigSecSpec</title>
+    <link rel="stylesheet" href="public/styles.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    <style>
+        .error-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .error-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 3rem 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .error-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: errorPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes errorPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        .error-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--background-primary);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+        }
+        
+        .error-message {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-home {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: var(--background-primary);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--glow-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-home:hover::before {
+            left: 100%;
+        }
+        
+        .btn-home:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--glow-intense);
+        }
+        
+        .btn-admin {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            color: var(--background-primary);
+            padding: 0.75rem 2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-admin::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-admin:hover::before {
+            left: 100%;
+        }
+        
+        .btn-admin:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            box-shadow: var(--glow-primary);
+            transform: translateY(-2px);
+        }
+        
+        .error-suggestions {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .error-suggestions h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .error-suggestions ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .error-suggestions li {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .error-suggestions li::before {
+            content: '•';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .error-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .error-title {
+                font-size: 2rem;
+            }
+            
+            .error-message {
+                font-size: 1rem;
+            }
+            
+            .error-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-home,
+            .btn-admin {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-content">
+            <div class="error-icon">🛡️</div>
+            <h1 class="error-title">404 - Page Not Found</h1>
+            <p class="error-message">
+                The page you're looking for doesn't exist or has been moved. 
+                Don't worry, our security team is on it!
+            </p>
+            
+            <div class="error-actions">
+                <a href="index.html" class="btn-home">🏠 Go Home</a>
+                <a href="admin.html" class="btn-admin">⚙️ Admin Guide</a>
+            </div>
+            
+            <div class="error-suggestions">
+                <h3>What you can do:</h3>
+                <ul>
+                    <li>Check the URL for typos</li>
+                    <li>Return to the main operations page</li>
+                    <li>Visit the admin guide for help</li>
+                    <li>Contact support if the problem persists</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include the same background effects as the main site -->
+    <script src="public/particles.js"></script>
+    <script src="public/floating-elements.js"></script>
+</body>
+</html>
