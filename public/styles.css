@@ -372,6 +372,11 @@ body {
   color: white;
 }
 
+.status-badge.development {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+
 .app-description {
   font-size: clamp(14px, 2.5vw, 16px);
   color: var(--text-secondary);
@@ -586,6 +591,11 @@ body {
   color: white;
 }
 
+.operation-status.development {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+
 .operation-description {
   font-size: clamp(14px, 2.5vw, 16px);
   color: var(--text-secondary);
@@ -672,6 +682,76 @@ body {
 .download-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(174, 174, 90, 0.4);
+}
+
+/* Android Download Options */
+.android-download-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.android-file-option {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(174, 174, 90, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.android-file-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(174, 174, 90, 0.3);
+  transform: translateY(-2px);
+}
+
+.file-info {
+  margin-bottom: 12px;
+}
+
+.file-info h5 {
+  font-size: clamp(16px, 3vw, 18px);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.file-size {
+  font-size: clamp(13px, 2.5vw, 14px);
+  color: var(--text-secondary);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.file-description {
+  font-size: clamp(12px, 2.5vw, 13px);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.android-download-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  color: var(--background-primary);
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: clamp(13px, 2.5vw, 15px);
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(174, 174, 90, 0.3);
+  display: block;
+}
+
+.android-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(174, 174, 90, 0.4);
+  text-decoration: none;
+  color: var(--background-primary);
 }
 
 /* Updates Bubble Boxes */
@@ -939,6 +1019,15 @@ body {
   .operations-items {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
+  }
+  
+  .android-download-options {
+    flex-direction: row;
+    gap: 20px;
+  }
+  
+  .android-file-option {
+    flex: 1;
   }
   
   

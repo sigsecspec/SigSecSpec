@@ -393,9 +393,18 @@ We appreciate your patience as we work to deliver a high-quality product that me
                 download_url: "https://play.google.com/store/apps/details?id=com.sigsec.app",
                 version: "1.0.0",
                 file_size: "28.7 MB",
-                release_notes: "App currently unavailable - in development",
+                release_notes: "Download the Android app in APK format",
                 is_active: false,
-                created_at: "2024-01-25T09:00:00Z"
+                created_at: "2024-01-25T09:00:00Z",
+                status_type: "development",
+                android_files: [
+                    {
+                        type: "APK",
+                        url: "android/sigsec-app.apk",
+                        size: "28.7 MB",
+                        description: "Direct APK installation file"
+                    }
+                ]
             },
             {
                 id: 2,
@@ -405,7 +414,8 @@ We appreciate your patience as we work to deliver a high-quality product that me
                 file_size: "25.4 MB",
                 release_notes: "App currently unavailable - in development",
                 is_active: false,
-                created_at: "2024-01-25T09:00:00Z"
+                created_at: "2024-01-25T09:00:00Z",
+                status_type: "unavailable"
             }
         ];
         
@@ -436,27 +446,52 @@ We appreciate your patience as we work to deliver a high-quality product that me
             return;
         }
 
-        container.innerHTML = appLinks.map(link => `
-            <div class="app-link-item">
-                <div class="app-link-header">
-                    <h4 class="app-link-title">${this.escapeHtml(link.platform)}</h4>
-                    <span class="operation-status ${link.is_active ? 'active' : 'inactive'}">
-                        ${link.is_active ? 'Available' : 'Unavailable'}
-                    </span>
-                </div>
-                <div class="app-link-meta">
-                    ${link.version ? `<span>Version: ${this.escapeHtml(link.version)}</span>` : ''}
-                    ${link.file_size ? `<span>Size: ${this.escapeHtml(link.file_size)}</span>` : ''}
-                    <span>Platform: ${this.escapeHtml(link.platform)}</span>
-                </div>
-                <div class="operation-description">
-                    ${link.release_notes ? this.escapeHtml(link.release_notes) : 'Download the official SigSec mobile application for your device.'}
-                </div>
-                <a href="#" class="download-btn" onclick="showUnavailableMessage('${this.escapeHtml(link.platform)}'); return false;">
-                    Download for ${this.escapeHtml(link.platform)}
-                </a>
-            </div>
-        `).join('');
+        container.innerHTML = appLinks.map(link => {
+            if (link.platform === 'Android' && link.android_files) {
+                return `
+                    <div class="app-link-item">
+                        <div class="app-link-header">
+                            <h4 class="app-link-title">${this.escapeHtml(link.platform)}</h4>
+                            <span class="operation-status ${link.status_type === 'development' ? 'development' : link.status_type === 'unavailable' ? 'inactive' : 'active'}">
+                                ${link.status_type === 'development' ? 'In Development' : link.status_type === 'unavailable' ? 'Unavailable' : 'Available'}
+                            </span>
+                        </div>
+                        <div class="app-link-meta">
+                            ${link.version ? `<span>Version: ${this.escapeHtml(link.version)}</span>` : ''}
+                            <span>Platform: ${this.escapeHtml(link.platform)}</span>
+                        </div>
+                        <div class="operation-description">
+                            ${link.release_notes ? this.escapeHtml(link.release_notes) : 'Download the official SigSec mobile application for your device.'}
+                        </div>
+                        <a href="#" class="download-btn" onclick="showAndroidDownloadModal(); return false;">
+                            Download for Android
+                        </a>
+                    </div>
+                `;
+            } else {
+                return `
+                    <div class="app-link-item">
+                        <div class="app-link-header">
+                            <h4 class="app-link-title">${this.escapeHtml(link.platform)}</h4>
+                            <span class="operation-status ${link.status_type === 'development' ? 'development' : link.status_type === 'unavailable' ? 'inactive' : 'active'}">
+                                ${link.status_type === 'development' ? 'In Development' : link.status_type === 'unavailable' ? 'Unavailable' : 'Available'}
+                            </span>
+                        </div>
+                        <div class="app-link-meta">
+                            ${link.version ? `<span>Version: ${this.escapeHtml(link.version)}</span>` : ''}
+                            ${link.file_size ? `<span>Size: ${this.escapeHtml(link.file_size)}</span>` : ''}
+                            <span>Platform: ${this.escapeHtml(link.platform)}</span>
+                        </div>
+                        <div class="operation-description">
+                            ${link.release_notes ? this.escapeHtml(link.release_notes) : 'Download the official SigSec mobile application for your device.'}
+                        </div>
+                        <a href="#" class="download-btn" onclick="showUnavailableMessage('${this.escapeHtml(link.platform)}'); return false;">
+                            Download for ${this.escapeHtml(link.platform)}
+                        </a>
+                    </div>
+                `;
+            }
+        }).join('');
     }
 
     renderAppLinksError() {
@@ -703,6 +738,147 @@ function showUnavailableMessage(platform) {
 // Global function to close modal
 function closeUnavailableModal() {
     const overlay = document.querySelector('div[style*="position: fixed"]');
+    if (overlay) {
+        overlay.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => {
+            if (overlay._cleanup) overlay._cleanup();
+            document.body.removeChild(overlay);
+        }, 300);
+    }
+}
+
+// Global function to show Android download modal
+function showAndroidDownloadModal() {
+    // Create modal overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'android-download-modal';
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.3s ease;
+    `;
+
+    // Create modal content
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(25px) saturate(180%);
+        border: 1px solid rgba(174, 174, 90, 0.2);
+        border-radius: 18px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        max-width: 600px;
+        margin: 20px;
+        animation: slideIn 0.3s ease;
+    `;
+
+    modal.innerHTML = `
+        <div style="font-size: 3rem; margin-bottom: 1rem;">📱</div>
+        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: clamp(20px, 4vw, 24px); font-weight: 700; text-shadow: 0 0 15px rgba(174, 174, 90, 0.3);">
+            Download Android App
+        </h3>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6; font-size: clamp(14px, 2.5vw, 16px);">
+            Download the Android APK file for direct installation.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 1.5rem;">
+            <div style="background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(25px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 18px; padding: 24px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);">
+                <div style="margin-bottom: 16px;">
+                    <h5 style="font-size: clamp(16px, 3vw, 18px); font-weight: 600; color: var(--text-primary); margin: 0 0 8px 0;">APK</h5>
+                    <span style="font-size: clamp(13px, 2.5vw, 14px); color: var(--text-secondary); font-weight: 500; display: block; margin-bottom: 8px;">28.7 MB</span>
+                    <p style="font-size: clamp(12px, 2.5vw, 13px); color: var(--text-secondary); margin: 0; line-height: 1.4;">Direct APK installation file</p>
+                </div>
+                <a href="android/sigsec-app.apk" class="download-btn" download style="
+                    width: 100%;
+                    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+                    color: var(--background-primary);
+                    text-decoration: none;
+                    padding: 14px 24px;
+                    border-radius: 10px;
+                    font-weight: 600;
+                    font-size: clamp(14px, 2.5vw, 16px);
+                    text-align: center;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    box-shadow: 0 4px 15px rgba(174, 174, 90, 0.3);
+                    display: block;
+                " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(174, 174, 90, 0.4)'" 
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(174, 174, 90, 0.3)'">
+                    Download APK
+                </a>
+            </div>
+        </div>
+        <button onclick="closeAndroidDownloadModal()" style="
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            border: 1px solid rgba(174, 174, 90, 0.2);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: clamp(14px, 2.5vw, 16px);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        " onmouseover="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.transform='translateY(-2px)'" 
+           onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.transform='translateY(0)'">
+            Cancel
+        </button>
+    `;
+
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+
+    // Add CSS animations
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @media (min-width: 768px) {
+            .android-download-modal div[style*="flex-direction: column"] {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Close on overlay click
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            closeAndroidDownloadModal();
+        }
+    });
+
+    // Close on Escape key
+    const handleEscape = (e) => {
+        if (e.key === 'Escape') {
+            closeAndroidDownloadModal();
+        }
+    };
+    document.addEventListener('keydown', handleEscape);
+
+    // Store cleanup function
+    overlay._cleanup = () => {
+        document.removeEventListener('keydown', handleEscape);
+    };
+}
+
+// Global function to close Android download modal
+function closeAndroidDownloadModal() {
+    const overlay = document.querySelector('.android-download-modal');
     if (overlay) {
         overlay.style.animation = 'fadeOut 0.3s ease';
         setTimeout(() => {

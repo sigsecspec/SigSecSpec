@@ -139,7 +139,7 @@ class ParticleSystem {
                     
                     // Apply gripping force to both particles after collision
                     const originalSpeed = 0.3;
-                    const grippingForce = 0.98;
+                    const grippingForce = 0.92;
                     
                     if (Math.abs(particle.vx) > originalSpeed) {
                         particle.vx *= grippingForce;
@@ -159,7 +159,7 @@ class ParticleSystem {
             // Bounce off edges with gripping force
             const edgeRestitution = 1.0;
             const originalSpeed = 0.3; // Target speed to return to
-            const grippingForce = 0.98; // Friction factor (0.98 = 2% speed reduction per frame)
+            const grippingForce = 0.92; // Friction factor (0.92 = 8% speed reduction per frame)
             
             if (particle.x < particle.size / 2) {
                 particle.x = particle.size / 2;
