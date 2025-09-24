@@ -114,6 +114,66 @@ body {
   max-width: 100%;
 }
 
+/* Mobile Navigation Layout - 3 top, 1 bottom */
+@media (max-width: 767px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .nav-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .nav-row.top {
+    margin-bottom: 4px;
+  }
+  
+  .nav-row.bottom {
+    justify-content: center;
+  }
+  
+  .nav-link {
+    flex: 1;
+    min-width: 100px;
+    max-width: 120px;
+  }
+  
+  .nav-link.download {
+    width: calc(100% + 16px);
+    max-width: calc(100% + 16px);
+    flex: none;
+    margin: 0 auto;
+  }
+}
+
+/* Desktop Navigation Layout - All 4 in a row */
+@media (min-width: 768px) {
+  .nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+  
+  .nav-row {
+    display: contents;
+  }
+  
+  .nav-link {
+    flex: 1;
+    min-width: 120px;
+  }
+  
+  .nav-link.download {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
 .nav-link {
   color: var(--background-primary);
   text-decoration: none;

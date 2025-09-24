@@ -57,8 +57,8 @@ class ParticleSystem {
             this.particles.push({
                 x: Math.random() * this.canvas.width,
                 y: Math.random() * this.canvas.height,
-                vx: (Math.random() - 0.5) * 0.2,
-                vy: (Math.random() - 0.5) * 0.2,
+                vx: (Math.random() - 0.5) * 0.6,
+                vy: (Math.random() - 0.5) * 0.6,
                 size: Math.random() * 120 + 40, // Different sizes from 40-160 pixels
                 opacity: Math.random() * 0.4 + 0.1,
                 rotation: Math.random() * Math.PI * 2,
@@ -123,7 +123,7 @@ class ParticleSystem {
                     if (speed > 0) continue;
                     
                     // Calculate restitution (bounce factor)
-                    const restitution = 0.8;
+                    const restitution = 1.0;
                     
                     // Calculate impulse scalar
                     const impulse = -(1 + restitution) * speed;
@@ -136,26 +136,61 @@ class ParticleSystem {
                     particle.vy += impulseY;
                     otherParticle.vx -= impulseX;
                     otherParticle.vy -= impulseY;
+                    
+                    // Apply gripping force to both particles after collision
+                    const originalSpeed = 0.3;
+                    const grippingForce = 0.98;
+                    
+                    if (Math.abs(particle.vx) > originalSpeed) {
+                        particle.vx *= grippingForce;
+                    }
+                    if (Math.abs(particle.vy) > originalSpeed) {
+                        particle.vy *= grippingForce;
+                    }
+                    if (Math.abs(otherParticle.vx) > originalSpeed) {
+                        otherParticle.vx *= grippingForce;
+                    }
+                    if (Math.abs(otherParticle.vy) > originalSpeed) {
+                        otherParticle.vy *= grippingForce;
+                    }
                 }
             }
             
-            // Bounce off edges with energy loss
-            const edgeRestitution = 0.9;
+            // Bounce off edges with gripping force
+            const edgeRestitution = 1.0;
+            const originalSpeed = 0.3; // Target speed to return to
+            const grippingForce = 0.98; // Friction factor (0.98 = 2% speed reduction per frame)
             
             if (particle.x < particle.size / 2) {
                 particle.x = particle.size / 2;
                 particle.vx = Math.abs(particle.vx) * edgeRestitution;
+                // Apply gripping force to slow down
+                if (Math.abs(particle.vx) > originalSpeed) {
+                    particle.vx *= grippingForce;
+                }
             } else if (particle.x > this.canvas.width - particle.size / 2) {
                 particle.x = this.canvas.width - particle.size / 2;
                 particle.vx = -Math.abs(particle.vx) * edgeRestitution;
+                // Apply gripping force to slow down
+                if (Math.abs(particle.vx) > originalSpeed) {
+                    particle.vx *= grippingForce;
+                }
             }
             
             if (particle.y < particle.size / 2) {
                 particle.y = particle.size / 2;
                 particle.vy = Math.abs(particle.vy) * edgeRestitution;
+                // Apply gripping force to slow down
+                if (Math.abs(particle.vy) > originalSpeed) {
+                    particle.vy *= grippingForce;
+                }
             } else if (particle.y > this.canvas.height - particle.size / 2) {
                 particle.y = this.canvas.height - particle.size / 2;
                 particle.vy = -Math.abs(particle.vy) * edgeRestitution;
+                // Apply gripping force to slow down
+                if (Math.abs(particle.vy) > originalSpeed) {
+                    particle.vy *= grippingForce;
+                }
             }
             
             // Mouse interaction
