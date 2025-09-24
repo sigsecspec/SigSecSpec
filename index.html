@@ -10,46 +10,80 @@
     <link rel="stylesheet" href="public/styles.css">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
     <style>
-        /* Fallback styles to ensure basic styling works */
+        /* Mobile-First Fallback Styles */
         body { 
-            background: linear-gradient(135deg, #0f0f0f 0%, #535347 50%, #787876 100%);
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2a2a2a 100%);
             color: white;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             padding: 0;
+            font-size: 16px;
         }
         .header {
             background: rgba(15, 15, 15, 0.95);
             color: white;
-            padding: 1rem 0;
+            padding: 12px 0;
             position: sticky;
             top: 0;
             z-index: 100;
         }
         .container {
-            max-width: 1200px;
+            width: 100%;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 16px;
         }
         .logo h1 {
             color: #aeae5a;
-            font-size: 1.5rem;
+            font-size: 18px;
             font-weight: 700;
         }
         .nav {
             display: flex;
-            gap: 1rem;
+            gap: 8px;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: center;
+            margin-top: 8px;
         }
         .nav-link {
             color: white;
             text-decoration: none;
-            padding: 0.5rem 0.75rem;
+            padding: 8px 12px;
             border-radius: 8px;
             transition: all 0.3s ease;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(174, 174, 90, 0.2);
+            flex: 1;
+            min-width: 0;
+            text-align: center;
         }
         .nav-link:hover, .nav-link.active {
             background: linear-gradient(135deg, #aeae5a, #c4c4c4);
             color: white;
+            transform: translateY(-1px);
+        }
+        .hero {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(20px);
+            padding: 32px 0;
+            margin: 16px 0 24px 0;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(174, 174, 90, 0.2);
+        }
+        .hero-content h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 12px;
+        }
+        .hero-content p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 100%;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -65,12 +99,11 @@
                     <h1>Signature Security Specialties</h1>
                 </div>
                 <nav class="nav">
-                    <a href="#app-status" class="nav-link active">App Status</a>
-                    <a href="#licenses" class="nav-link">Licenses</a>
-                    <a href="#insurance" class="nav-link">Insurance</a>
-                    <a href="#certifications" class="nav-link">Certifications</a>
-                    <a href="#permits" class="nav-link">Permits</a>
-                    <a href="#download" class="nav-link">Download</a>
+                    <a href="#updates" class="nav-link active">Updates</a>
+                    <a href="#app-status" class="nav-link">Status</a>
+                    <a href="#operations" class="nav-link">Ops</a>
+                    <a href="#app-links" class="nav-link">Apps</a>
+                    <a href="admin.html" class="nav-link admin-link">Admin</a>
                 </nav>
             </div>
         </div>
@@ -84,8 +117,8 @@
                     <img src="public/images/logo.png" alt="SigSec Background" class="hero-bg-img" onerror="this.style.display='none';">
                 </div>
                 <div class="hero-content">
-                    <h2>Company Operations Status</h2>
-                    <p>Real-time status of our website, applications, and company operations for employees and clients.</p>
+                    <h2>SigSec Operations</h2>
+                    <p>Real-time security operations and mobile app management</p>
                 </div>
             </section>
 
@@ -110,23 +143,6 @@
                     <div class="loading">Loading updates...</div>
                     <!-- Fallback content in case JavaScript doesn't load -->
                     <noscript>
-                        <div class="update-card">
-                            <h3>Development Progress Update</h3>
-                            <div class="update-meta">
-                                <span class="update-type update">update</span>
-                                <span class="update-date">September 18, 2025</span>
-                                <span class="update-author">by Development Team</span>
-                                <span class="update-priority high">high</span>
-                            </div>
-                            <div class="update-content">We are working diligently on getting the website and mobile app developed for testing as fast as possible. Our development team is working around the clock to ensure we meet our target milestones:
-
-• Test Version v1.0.0 - October 1st, 2025
-• Beta Version v1.0.0 - November 1st, 2025
-• Release Version v1.0.0 - December 1st, 2025
-• Launch Version v1.0.0 - January 1st, 2026
-
-We appreciate your patience as we work to deliver a high-quality product that meets our standards.</div>
-                        </div>
                     </noscript>
                 </div>
                 
@@ -160,7 +176,7 @@ We appreciate your patience as we work to deliver a high-quality product that me
                                         <span class="version-status unreleased">unreleased</span>
                                     </div>
                                     <p class="version-notes">Internal testing phase - not ready for public release</p>
-                                    <small class="version-date">Updated: February 15, 2024</small>
+                                    <small class="version-date">Milestone: October 1st, 2025</small>
                                 </div>
                                 <div class="version-card beta">
                                     <h5>Beta</h5>
@@ -169,7 +185,7 @@ We appreciate your patience as we work to deliver a high-quality product that me
                                         <span class="version-status unreleased">unreleased</span>
                                     </div>
                                     <p class="version-notes">Beta version not yet available</p>
-                                    <small class="version-date">Updated: February 15, 2024</small>
+                                    <small class="version-date">Milestone: November 1st, 2025</small>
                                 </div>
                                 <div class="version-card release">
                                     <h5>Release</h5>
@@ -178,7 +194,7 @@ We appreciate your patience as we work to deliver a high-quality product that me
                                         <span class="version-status unreleased">unreleased</span>
                                     </div>
                                     <p class="version-notes">Production release pending final testing and approval</p>
-                                    <small class="version-date">Updated: February 15, 2024</small>
+                                    <small class="version-date">Milestone: December 1st, 2025</small>
                                 </div>
                             </div>
                         </div>
