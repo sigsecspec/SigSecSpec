@@ -238,7 +238,7 @@ body {
 
 /* App Status Bubble Box */
 .app-status-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.71);
   backdrop-filter: blur(25px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 18px;
@@ -325,7 +325,7 @@ body {
 }
 
 .version-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.71);
   backdrop-filter: blur(20px) saturate(150%);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 14px;
@@ -468,7 +468,7 @@ body {
 }
 
 .operation-item {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.71);
   backdrop-filter: blur(25px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 18px;
@@ -543,7 +543,7 @@ body {
 
 /* App Links Bubble Boxes */
 .app-link-item {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.71);
   backdrop-filter: blur(25px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 18px;
@@ -613,7 +613,7 @@ body {
 
 /* Updates Bubble Boxes */
 .update-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.71);
   backdrop-filter: blur(25px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 18px;

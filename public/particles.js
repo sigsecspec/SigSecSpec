@@ -51,7 +51,7 @@ class ParticleSystem {
     }
 
     createParticles() {
-        const particleCount = Math.floor((window.innerWidth * window.innerHeight) / 100000);
+        const particleCount = Math.floor((window.innerWidth * window.innerHeight) / 60000);
         
         for (let i = 0; i < particleCount; i++) {
             this.particles.push({
