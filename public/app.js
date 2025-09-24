@@ -405,20 +405,20 @@ We appreciate your patience as we work to deliver a high-quality product that me
         const appLinks = [
             {
                 id: 1,
-                platform: "iOS",
-                download_url: "https://apps.apple.com/app/sigsec/id123456789",
+                platform: "Android",
+                download_url: "https://play.google.com/store/apps/details?id=com.sigsec.app",
                 version: "1.0.0",
-                file_size: "25.4 MB",
+                file_size: "28.7 MB",
                 release_notes: "Initial release with core security features and real-time notifications.",
                 is_active: true,
                 created_at: "2024-01-25T09:00:00Z"
             },
             {
                 id: 2,
-                platform: "Android",
-                download_url: "https://play.google.com/store/apps/details?id=com.sigsec.app",
+                platform: "iOS",
+                download_url: "https://apps.apple.com/app/sigsec/id123456789",
                 version: "1.0.0",
-                file_size: "28.7 MB",
+                file_size: "25.4 MB",
                 release_notes: "Initial release with core security features and real-time notifications.",
                 is_active: true,
                 created_at: "2024-01-25T09:00:00Z"
