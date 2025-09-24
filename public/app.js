@@ -288,6 +288,26 @@ We appreciate your patience as we work to deliver a high-quality product that me
         `;
     }
 
+    renderOperationsError() {
+        const container = document.getElementById('operations-container');
+        container.innerHTML = `
+            <div class="operation-item error">
+                <h4>Unable to Load Operations</h4>
+                <p>There was an error loading the operations information. Please try again later.</p>
+            </div>
+        `;
+    }
+
+    renderUpdatesError() {
+        const container = document.getElementById('updates-container');
+        container.innerHTML = `
+            <div class="update-card error">
+                <h4>Unable to Load Updates</h4>
+                <p>There was an error loading the updates information. Please try again later.</p>
+            </div>
+        `;
+    }
+
     async loadOperationsStatus() {
         console.log('loadOperationsStatus() called - fetching fresh data');
         try {
