@@ -51,7 +51,7 @@ class ParticleSystem {
     }
 
     createParticles() {
-        const particleCount = Math.floor((window.innerWidth * window.innerHeight) / 20000);
+        const particleCount = Math.floor((window.innerWidth * window.innerHeight) / 35000);
         
         for (let i = 0; i < particleCount; i++) {
             this.particles.push({
@@ -59,7 +59,7 @@ class ParticleSystem {
                 y: Math.random() * this.canvas.height,
                 vx: (Math.random() - 0.5) * 0.2,
                 vy: (Math.random() - 0.5) * 0.2,
-                size: Math.random() * 60 + 20, // Different sizes from 20-80 pixels
+                size: Math.random() * 120 + 40, // Different sizes from 40-160 pixels
                 opacity: Math.random() * 0.4 + 0.1,
                 rotation: Math.random() * Math.PI * 2,
                 rotationSpeed: (Math.random() - 0.5) * 0.01,
@@ -119,7 +119,7 @@ class ParticleSystem {
             this.ctx.translate(particle.x, particle.y);
             this.ctx.rotate(particle.rotation);
             
-            const currentSize = particle.size + Math.sin(particle.pulse) * 3;
+            const currentSize = particle.size + Math.sin(particle.pulse) * 6;
             const currentOpacity = particle.opacity + Math.sin(particle.pulse) * 0.05;
             
             if (this.patchImage && this.patchImage.complete) {
