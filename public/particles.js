@@ -51,7 +51,7 @@ class ParticleSystem {
     }
 
     createParticles() {
-        const particleCount = Math.floor((window.innerWidth * window.innerHeight) / 60000);
+        const particleCount = Math.floor((window.innerWidth * window.innerHeight) / 80000);
         
         for (let i = 0; i < particleCount; i++) {
             this.particles.push({
@@ -59,7 +59,7 @@ class ParticleSystem {
                 y: Math.random() * this.canvas.height,
                 vx: (Math.random() - 0.5) * 0.2,
                 vy: (Math.random() - 0.5) * 0.2,
-                size: Math.random() * 270 + 90, // Different sizes from 90-360 pixels
+                size: Math.random() * 120 + 40, // Different sizes from 40-160 pixels
                 opacity: Math.random() * 0.4 + 0.1,
                 rotation: Math.random() * Math.PI * 2,
                 rotationSpeed: (Math.random() - 0.5) * 0.01,
@@ -78,7 +78,7 @@ class ParticleSystem {
     }
 
     updateParticles() {
-        this.particles.forEach(particle => {
+        this.particles.forEach((particle, index) => {
             // Update position
             particle.x += particle.vx;
             particle.y += particle.vy;
@@ -88,6 +88,35 @@ class ParticleSystem {
             
             // Update pulse
             particle.pulse += 0.01;
+            
+            // Collision detection with other particles
+            for (let i = index + 1; i < this.particles.length; i++) {
+                const otherParticle = this.particles[i];
+                const dx = particle.x - otherParticle.x;
+                const dy = particle.y - otherParticle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                const minDistance = (particle.size + otherParticle.size) / 2 + 10; // 10px buffer
+                
+                if (distance < minDistance && distance > 0) {
+                    // Calculate collision response
+                    const overlap = minDistance - distance;
+                    const separationX = (dx / distance) * overlap * 0.5;
+                    const separationY = (dy / distance) * overlap * 0.5;
+                    
+                    // Separate particles
+                    particle.x += separationX;
+                    particle.y += separationY;
+                    otherParticle.x -= separationX;
+                    otherParticle.y -= separationY;
+                    
+                    // Add slight repulsion force
+                    const repulsionForce = 0.02;
+                    particle.vx += (dx / distance) * repulsionForce;
+                    particle.vy += (dy / distance) * repulsionForce;
+                    otherParticle.vx -= (dx / distance) * repulsionForce;
+                    otherParticle.vy -= (dy / distance) * repulsionForce;
+                }
+            }
             
             // Bounce off edges
             if (particle.x < -particle.size || particle.x > this.canvas.width + particle.size) particle.vx *= -1;
@@ -119,7 +148,7 @@ class ParticleSystem {
             this.ctx.translate(particle.x, particle.y);
             this.ctx.rotate(particle.rotation);
             
-            const currentSize = particle.size + Math.sin(particle.pulse) * 13.5;
+            const currentSize = particle.size + Math.sin(particle.pulse) * 6;
             const currentOpacity = particle.opacity + Math.sin(particle.pulse) * 0.05;
             
             if (this.patchImage && this.patchImage.complete) {
