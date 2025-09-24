@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="public/styles.css?v=4">
+    <link rel="stylesheet" href="public/styles.css?v=10">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
     <style>
         /* Fallback styles to ensure basic styling works */
@@ -68,11 +68,9 @@
                     <h1>Signature Security Specialties</h1>
                 </div>
                 <nav class="nav">
-                    <a href="#app-status" class="nav-link active">App Status</a>
-                    <a href="#licenses" class="nav-link">Licenses</a>
-                    <a href="#insurance" class="nav-link">Insurance</a>
-                    <a href="#certifications" class="nav-link">Certifications</a>
-                    <a href="#permits" class="nav-link">Permits</a>
+                    <a href="#updates" class="nav-link active">Updates</a>
+                    <a href="#app-status" class="nav-link">App Status</a>
+                    <a href="#operations" class="nav-link">Operations</a>
                     <a href="#download" class="nav-link">Download</a>
                 </nav>
             </div>
@@ -158,7 +156,7 @@
                                     <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: November 1st, 2025</small>
                                 </div>
                                 <div class="version-card release">
-                                    <h5>Release</h5>
+                                    <h5>Public Release</h5>
                                     <div class="version-info">
                                         <span class="version-number">v1.0.0</span>
                                         <span class="version-status unreleased">unreleased</span>
@@ -166,79 +164,82 @@
                                     <p class="version-notes">Production release pending final testing and approval</p>
                                     <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: December 1st, 2025</small>
                                 </div>
+                                <div class="version-card launch">
+                                    <h5>Launch Release</h5>
+                                    <div class="version-info">
+                                        <span class="version-number">v1.0.0</span>
+                                        <span class="version-status unreleased">unreleased</span>
+                                    </div>
+                                    <p class="version-notes">Full public launch with all features and services</p>
+                                    <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: January 1st, 2026</small>
+                                </div>
                             </div>
                         </div>
                     </noscript>
                 </div>
             </section>
 
-            <!-- Licenses Section -->
-            <section id="licenses" class="operations-section">
+            <!-- Operations Section -->
+            <section id="operations" class="operations-section">
                 <div class="section-header">
-                    <h3>Licenses</h3>
-                    <p>Business licenses</p>
+                    <h3>Company Operations</h3>
+                    <p>Business licenses, insurance, certifications, and permits status</p>
                 </div>
-                <div id="licenses-container" class="operations-container">
-                    <div class="loading">Loading licenses status...</div>
+                <div id="operations-container" class="operations-container">
+                    <div class="loading">Loading operations status...</div>
                     <!-- Fallback content in case JavaScript doesn't load -->
                     <noscript>
-                        <div class="status-card">
-                            <h4>No Licenses Data Available</h4>
-                            <p>Licenses status information will appear here once available.</p>
+                        <div class="operation-item">
+                            <div class="operation-header">
+                                <h4 class="operation-title">Licenses</h4>
+                                <span class="operation-status inactive">Pending</span>
+                            </div>
+                            <div class="operation-description">
+                                Licenses documentation and verification in progress
+                            </div>
+                            <div class="operation-meta">
+                                <span>Status: In Progress</span>
+                                <span>Last Updated: September 18, 2025</span>
+                            </div>
                         </div>
-                    </noscript>
-                </div>
-            </section>
-
-            <!-- Insurance Section -->
-            <section id="insurance" class="operations-section">
-                <div class="section-header">
-                    <h3>Insurance</h3>
-                    <p>Business insurance coverage</p>
-                </div>
-                <div id="insurance-container" class="operations-container">
-                    <div class="loading">Loading insurance status...</div>
-                    <!-- Fallback content in case JavaScript doesn't load -->
-                    <noscript>
-                        <div class="status-card">
-                            <h4>No Insurance Data Available</h4>
-                            <p>Insurance status information will appear here once available.</p>
+                        <div class="operation-item">
+                            <div class="operation-header">
+                                <h4 class="operation-title">Insurance</h4>
+                                <span class="operation-status inactive">Pending</span>
+                            </div>
+                            <div class="operation-description">
+                                Insurance documentation and verification in progress
+                            </div>
+                            <div class="operation-meta">
+                                <span>Status: In Progress</span>
+                                <span>Last Updated: September 18, 2025</span>
+                            </div>
                         </div>
-                    </noscript>
-                </div>
-            </section>
-
-            <!-- Certifications Section -->
-            <section id="certifications" class="operations-section">
-                <div class="section-header">
-                    <h3>Certifications</h3>
-                    <p>Compliance certifications</p>
-                </div>
-                <div id="certifications-container" class="operations-container">
-                    <div class="loading">Loading certifications status...</div>
-                    <!-- Fallback content in case JavaScript doesn't load -->
-                    <noscript>
-                        <div class="status-card">
-                            <h4>No Certifications Data Available</h4>
-                            <p>Certifications status information will appear here once available.</p>
+                        <div class="operation-item">
+                            <div class="operation-header">
+                                <h4 class="operation-title">Certifications</h4>
+                                <span class="operation-status inactive">Pending</span>
+                            </div>
+                            <div class="operation-description">
+                                Certifications documentation and verification in progress
+                            </div>
+                            <div class="operation-meta">
+                                <span>Status: In Progress</span>
+                                <span>Last Updated: September 18, 2025</span>
+                            </div>
                         </div>
-                    </noscript>
-                </div>
-            </section>
-
-            <!-- Permits Section -->
-            <section id="permits" class="operations-section">
-                <div class="section-header">
-                    <h3>Permits</h3>
-                    <p>Data processing, cloud services, and export control permits</p>
-                </div>
-                <div id="permits-container" class="operations-container">
-                    <div class="loading">Loading permits status...</div>
-                    <!-- Fallback content in case JavaScript doesn't load -->
-                    <noscript>
-                        <div class="status-card">
-                            <h4>No Permits Data Available</h4>
-                            <p>Permits status information will appear here once available.</p>
+                        <div class="operation-item">
+                            <div class="operation-header">
+                                <h4 class="operation-title">Permits</h4>
+                                <span class="operation-status inactive">Pending</span>
+                            </div>
+                            <div class="operation-description">
+                                Permits documentation and verification in progress
+                            </div>
+                            <div class="operation-meta">
+                                <span>Status: In Progress</span>
+                                <span>Last Updated: September 18, 2025</span>
+                            </div>
                         </div>
                     </noscript>
                 </div>
@@ -254,25 +255,39 @@
                     <div class="loading">Loading download links...</div>
                     <!-- Fallback content in case JavaScript doesn't load -->
                     <noscript>
-                        <div class="app-link-card">
-                            <h4>Android</h4>
-                            <div class="version">Version 1.0.0</div>
-                            <div class="file-size">28.7 MB</div>
-                            <button class="download-btn" onclick="alert('App currently unavailable - in development')">Download</button>
-                            <details class="mt-2">
-                                <summary style="cursor: pointer; color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Release Notes</summary>
-                                <div style="margin-top: 0.5rem; color: var(--background-primary); font-size: 0.9rem; white-space: pre-wrap;">Initial release with core security features and real-time notifications.</div>
-                            </details>
+                        <div class="app-link-item">
+                            <div class="app-link-header">
+                                <h4 class="app-link-title">Android</h4>
+                                <span class="operation-status inactive">Unavailable</span>
+                            </div>
+                            <div class="app-link-meta">
+                                <span>Version: 1.0.0</span>
+                                <span>Size: 28.7 MB</span>
+                                <span>Platform: Android</span>
+                            </div>
+                            <div class="operation-description">
+                                App currently unavailable - in development
+                            </div>
+                            <a href="#" class="download-btn" onclick="alert('App currently unavailable - in development'); return false;">
+                                Download for Android
+                            </a>
                         </div>
-                        <div class="app-link-card">
-                            <h4>iOS</h4>
-                            <div class="version">Version 1.0.0</div>
-                            <div class="file-size">25.4 MB</div>
-                            <button class="download-btn" onclick="alert('App currently unavailable - in development')">Download</button>
-                            <details class="mt-2">
-                                <summary style="cursor: pointer; color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Release Notes</summary>
-                                <div style="margin-top: 0.5rem; color: var(--background-primary); font-size: 0.9rem; white-space: pre-wrap;">Initial release with core security features and real-time notifications.</div>
-                            </details>
+                        <div class="app-link-item">
+                            <div class="app-link-header">
+                                <h4 class="app-link-title">iOS</h4>
+                                <span class="operation-status inactive">Unavailable</span>
+                            </div>
+                            <div class="app-link-meta">
+                                <span>Version: 1.0.0</span>
+                                <span>Size: 25.4 MB</span>
+                                <span>Platform: iOS</span>
+                            </div>
+                            <div class="operation-description">
+                                App currently unavailable - in development
+                            </div>
+                            <a href="#" class="download-btn" onclick="alert('App currently unavailable - in development'); return false;">
+                                Download for iOS
+                            </a>
                         </div>
                     </noscript>
                 </div>
@@ -296,9 +311,9 @@
         </div>
     </footer>
 
-    <script src="public/particles.js"></script>
+    <script src="public/particles.js?v=3"></script>
     <script src="public/floating-elements.js"></script>
-    <script src="public/app.js?v=3"></script>
+    <script src="public/app.js?v=10"></script>
     
     <!-- Final safety check to ensure content is always visible -->
     <script>

@@ -238,17 +238,15 @@ body {
 
 /* App Status Bubble Box */
 .app-status-card {
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%),
-    radial-gradient(circle at 30% 30%, rgba(174, 174, 90, 0.08) 0%, transparent 50%);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(25px) saturate(180%);
-  border: 1px solid rgba(174, 174, 90, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 18px;
   padding: 30px;
   box-shadow: 
-    0 12px 30px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(174, 174, 90, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 12px 30px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -272,7 +270,7 @@ body {
 .app-title {
   font-size: 20px;
   font-weight: 600;
-  color: var(--background-primary);
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -295,9 +293,14 @@ body {
   color: white;
 }
 
+.status-badge.unavailable {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  color: white;
+}
+
 .app-description {
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary);
   margin-bottom: 20px;
   line-height: 1.6;
 }
@@ -311,10 +314,9 @@ body {
 }
 
 .version-card {
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px) saturate(150%);
-  border: 1px solid rgba(174, 174, 90, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 14px;
   padding: 24px;
   text-align: center;
@@ -322,9 +324,9 @@ body {
   position: relative;
   overflow: hidden;
   box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgba(174, 174, 90, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .version-card:hover {
@@ -338,20 +340,20 @@ body {
 .version-number {
   font-size: 18px;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--text-primary);
   margin-bottom: 6px;
 }
 
 .version-date {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   margin-bottom: 10px;
   font-weight: 500;
 }
 
 .version-notes {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary);
   line-height: 1.5;
 }
 
@@ -360,7 +362,7 @@ body {
 }
 
 .version-card.test .version-number {
-  color: #f59e0b;
+  color: var(--text-primary);
 }
 
 .version-card.beta {
@@ -368,7 +370,7 @@ body {
 }
 
 .version-card.beta .version-number {
-  color: #3b82f6;
+  color: var(--text-primary);
 }
 
 .version-card.release {
@@ -376,7 +378,25 @@ body {
 }
 
 .version-card.release .version-number {
-  color: #10b981;
+  color: var(--text-primary);
+}
+
+.version-card.launch {
+  border-color: #8b5cf6;
+}
+
+.version-card.launch .version-number {
+  color: var(--text-primary);
+}
+
+.version-status.unavailable {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  color: white;
+}
+
+.overall-status.unavailable {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  color: white;
 }
 
 /* Operations Bubble Boxes */
@@ -387,17 +407,15 @@ body {
 }
 
 .operation-item {
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%),
-    radial-gradient(circle at 20% 20%, rgba(174, 174, 90, 0.08) 0%, transparent 50%);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(25px) saturate(180%);
-  border: 1px solid rgba(174, 174, 90, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 18px;
   padding: 30px;
   box-shadow: 
-    0 12px 30px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(174, 174, 90, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 12px 30px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -421,7 +439,7 @@ body {
 .operation-title {
   font-size: 20px;
   font-weight: 600;
-  color: var(--background-primary);
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -446,7 +464,7 @@ body {
 
 .operation-description {
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary);
   margin-bottom: 16px;
   line-height: 1.6;
 }
@@ -459,22 +477,20 @@ body {
 
 .operation-meta span {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
 }
 
 /* App Links Bubble Boxes */
 .app-link-item {
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%),
-    radial-gradient(circle at 20% 20%, rgba(174, 174, 90, 0.08) 0%, transparent 50%);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(25px) saturate(180%);
-  border: 1px solid rgba(174, 174, 90, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 18px;
   padding: 30px;
   box-shadow: 
-    0 12px 30px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(174, 174, 90, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 12px 30px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -498,7 +514,7 @@ body {
 .app-link-title {
   font-size: 20px;
   font-weight: 600;
-  color: var(--background-primary);
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -511,7 +527,7 @@ body {
 
 .app-link-meta span {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
 }
 
 .download-btn {
@@ -536,18 +552,16 @@ body {
 
 /* Updates Bubble Boxes */
 .update-card {
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%),
-    radial-gradient(circle at 20% 20%, rgba(174, 174, 90, 0.08) 0%, transparent 50%);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(25px) saturate(180%);
-  border: 1px solid rgba(174, 174, 90, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 18px;
   padding: 30px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
-    0 12px 30px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(174, 174, 90, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 12px 30px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .update-card:hover {
@@ -558,64 +572,82 @@ body {
     0 0 30px rgba(174, 174, 90, 0.2);
 }
 
+
 .update-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 16px;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.update-meta-bubbles {
+  display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  align-items: center;
+}
+
+.meta-bubble {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.meta-bubble:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .update-title {
   font-size: 20px;
   font-weight: 600;
-  color: var(--background-primary);
+  color: var(--text-primary);
   margin: 0;
-  flex: 1;
-  min-width: 0;
-}
-
-.update-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-  flex-shrink: 0;
 }
 
 .update-date {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
 .update-type {
-  padding: 4px 8px;
-  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+}
+
+.update-type.update {
+  color: var(--primary-color);
+}
+
+.update-author {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.update-priority {
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.update-type.security {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-  color: white;
-}
-
-.update-type.feature {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  color: white;
-}
-
-.update-type.maintenance {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  color: white;
+.update-priority.high {
+  color: #ef4444;
 }
 
 .update-content {
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 16px;
 }
@@ -785,6 +817,7 @@ body {
     gap: 20px;
   }
   
+  
   .footer-content {
     flex-direction: row;
     justify-content: space-between;
@@ -850,7 +883,7 @@ body {
   }
   
   .version-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
   
@@ -858,6 +891,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
+  
 }
 
 /* Responsive Design - Large Desktop (1200px+) */
@@ -875,7 +909,7 @@ body {
   }
   
   .version-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .operations-items {

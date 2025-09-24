@@ -205,6 +205,12 @@ We appreciate your patience as we work to deliver a high-quality product that me
                         status: "unreleased",
                         last_updated: "2024-02-15T10:00:00Z",
                         notes: "Production release pending final testing and approval"
+                    },
+                    launch: {
+                        version: "v1.0.0",
+                        status: "unreleased",
+                        last_updated: "2024-02-15T10:00:00Z",
+                        notes: "Full public launch with all features and services"
                     }
                 },
                 overall_status: "unreleased",
@@ -266,13 +272,23 @@ We appreciate your patience as we work to deliver a high-quality product that me
                     </div>
                     
                     <div class="version-card release">
-                        <h5>Release</h5>
+                        <h5>Public Release</h5>
                         <div class="version-info">
                             <span class="version-number">${this.escapeHtml(app.versions.release.version)}</span>
                             <span class="version-status ${app.versions.release.status}">${this.escapeHtml(app.versions.release.status)}</span>
                         </div>
                         <p class="version-notes">${this.escapeHtml(app.versions.release.notes)}</p>
                         <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: December 1st, 2025</small>
+                    </div>
+                    
+                    <div class="version-card launch">
+                        <h5>Launch Release</h5>
+                        <div class="version-info">
+                            <span class="version-number">${this.escapeHtml(app.versions.launch.version)}</span>
+                            <span class="version-status ${app.versions.launch.status}">${this.escapeHtml(app.versions.launch.status)}</span>
+                        </div>
+                        <p class="version-notes">${this.escapeHtml(app.versions.launch.notes)}</p>
+                        <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: January 1st, 2026</small>
                     </div>
                 </div>
             </div>
@@ -320,61 +336,51 @@ We appreciate your patience as we work to deliver a high-quality product that me
 
     renderOperationsStatus(operations) {
         console.log('renderOperationsStatus() called with:', operations);
-        // Render each category in its own container
-        operations.forEach(category => {
-            const containerId = `${category.category.toLowerCase()}-container`;
-            const container = document.getElementById(containerId);
-            
-            if (!container) {
-                console.error(`Container not found: ${containerId}`);
-                return;
-            }
-            
-            if (!category.items || category.items.length === 0) {
-                container.innerHTML = `
-                    <div class="status-card">
-                        <h4>No ${category.category} Data Available</h4>
-                        <p>${category.category} status information will appear here once available.</p>
-                    </div>
-                `;
-                return;
-            }
-
-            container.innerHTML = `
-                <div class="operations-items">
-                    ${category.items.map(item => `
-                        <div class="operation-item">
-                            <div class="operation-header">
-                                <h5>${this.escapeHtml(item.name)}</h5>
-                                <span class="operation-status ${item.status}">${this.escapeHtml(item.status)}</span>
-                            </div>
-                            <div class="operation-details">
-                                <p class="operation-notes">${this.escapeHtml(item.notes)}</p>
-                                <div class="operation-meta">
-                                    <span class="expiry-date">Expires: ${this.formatDate(item.expiry_date)}</span>
-                                    <span class="last-updated">Updated: ${this.formatDate(item.last_updated)}</span>
-                                </div>
-                            </div>
-                        </div>
-                    `).join('')}
+        const container = document.getElementById('operations-container');
+        
+        if (!container) {
+            console.error('Operations container not found');
+            return;
+        }
+        
+        // Create individual cards for each category
+        container.innerHTML = operations.map(category => `
+            <div class="operation-item">
+                <div class="operation-header">
+                    <h4 class="operation-title">${this.escapeHtml(category.category)}</h4>
+                    <span class="operation-status ${category.items && category.items.length > 0 ? 'active' : 'inactive'}">
+                        ${category.items && category.items.length > 0 ? 'Active' : 'Pending'}
+                    </span>
                 </div>
-            `;
-        });
+                <div class="operation-description">
+                    ${category.items && category.items.length > 0 
+                        ? `${category.items.length} ${category.category.toLowerCase()} currently active`
+                        : `${category.category} documentation and verification in progress`
+                    }
+                </div>
+                <div class="operation-meta">
+                    <span>Status: ${category.items && category.items.length > 0 ? 'Documented' : 'In Progress'}</span>
+                    <span>Last Updated: ${this.formatDate(new Date().toISOString())}</span>
+                </div>
+            </div>
+        `).join('');
     }
 
     renderOperationsStatusError() {
-        const containers = ['licenses-container', 'insurance-container', 'certifications-container', 'permits-container'];
-        containers.forEach(containerId => {
-            const container = document.getElementById(containerId);
-            if (container) {
-                container.innerHTML = `
-                    <div class="status-card error">
-                        <h4>Unable to Load Operations Status</h4>
-                        <p>There was an error loading the operations status information. Please try again later.</p>
+        const container = document.getElementById('operations-container');
+        if (container) {
+            container.innerHTML = `
+                <div class="operation-item error">
+                    <div class="operation-header">
+                        <h4 class="operation-title">Unable to Load Operations Status</h4>
+                        <span class="operation-status inactive">Error</span>
                     </div>
-                `;
-            }
-        });
+                    <div class="operation-description">
+                        There was an error loading the operations status information. Please try again later.
+                    </div>
+                </div>
+            `;
+        }
     }
 
     async loadAppLinks() {
@@ -387,8 +393,8 @@ We appreciate your patience as we work to deliver a high-quality product that me
                 download_url: "https://play.google.com/store/apps/details?id=com.sigsec.app",
                 version: "1.0.0",
                 file_size: "28.7 MB",
-                release_notes: "Initial release with core security features and real-time notifications.",
-                is_active: true,
+                release_notes: "App currently unavailable - in development",
+                is_active: false,
                 created_at: "2024-01-25T09:00:00Z"
             },
             {
@@ -397,8 +403,8 @@ We appreciate your patience as we work to deliver a high-quality product that me
                 download_url: "https://apps.apple.com/app/sigsec/id123456789",
                 version: "1.0.0",
                 file_size: "25.4 MB",
-                release_notes: "Initial release with core security features and real-time notifications.",
-                is_active: true,
+                release_notes: "App currently unavailable - in development",
+                is_active: false,
                 created_at: "2024-01-25T09:00:00Z"
             }
         ];
@@ -417,28 +423,38 @@ We appreciate your patience as we work to deliver a high-quality product that me
         
         if (!appLinks || appLinks.length === 0) {
             container.innerHTML = `
-                <div class="app-link-card">
-                    <h4>No App Downloads Available</h4>
-                    <p>Check back later for official app releases.</p>
+                <div class="app-link-item">
+                    <div class="app-link-header">
+                        <h4 class="app-link-title">No App Downloads Available</h4>
+                        <span class="operation-status inactive">Unavailable</span>
+                    </div>
+                    <div class="operation-description">
+                        Check back later for official app releases.
+                    </div>
                 </div>
             `;
             return;
         }
 
         container.innerHTML = appLinks.map(link => `
-            <div class="app-link-card">
-                <h4>${this.escapeHtml(link.platform)}</h4>
-                ${link.version ? `<div class="version">Version ${this.escapeHtml(link.version)}</div>` : ''}
-                ${link.file_size ? `<div class="file-size">${this.escapeHtml(link.file_size)}</div>` : ''}
-                <button class="download-btn" onclick="showUnavailableMessage('${this.escapeHtml(link.platform)}')">
-                    Download
-                </button>
-                ${link.release_notes ? `
-                    <details class="mt-2">
-                        <summary style="cursor: pointer; color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Release Notes</summary>
-                        <div style="margin-top: 0.5rem; color: var(--background-primary); font-size: 0.9rem; white-space: pre-wrap;">${this.escapeHtml(link.release_notes)}</div>
-                    </details>
-                ` : ''}
+            <div class="app-link-item">
+                <div class="app-link-header">
+                    <h4 class="app-link-title">${this.escapeHtml(link.platform)}</h4>
+                    <span class="operation-status ${link.is_active ? 'active' : 'inactive'}">
+                        ${link.is_active ? 'Available' : 'Unavailable'}
+                    </span>
+                </div>
+                <div class="app-link-meta">
+                    ${link.version ? `<span>Version: ${this.escapeHtml(link.version)}</span>` : ''}
+                    ${link.file_size ? `<span>Size: ${this.escapeHtml(link.file_size)}</span>` : ''}
+                    <span>Platform: ${this.escapeHtml(link.platform)}</span>
+                </div>
+                <div class="operation-description">
+                    ${link.release_notes ? this.escapeHtml(link.release_notes) : 'Download the official SigSec mobile application for your device.'}
+                </div>
+                <a href="#" class="download-btn" onclick="showUnavailableMessage('${this.escapeHtml(link.platform)}'); return false;">
+                    Download for ${this.escapeHtml(link.platform)}
+                </a>
             </div>
         `).join('');
     }
@@ -446,9 +462,14 @@ We appreciate your patience as we work to deliver a high-quality product that me
     renderAppLinksError() {
         const container = document.getElementById('app-links');
         container.innerHTML = `
-            <div class="app-link-card">
-                <h4>Unable to Load Downloads</h4>
-                <p>There was an error loading the download links. Please try again later.</p>
+            <div class="app-link-item error">
+                <div class="app-link-header">
+                    <h4 class="app-link-title">Unable to Load Downloads</h4>
+                    <span class="operation-status inactive">Error</span>
+                </div>
+                <div class="operation-description">
+                    There was an error loading the download links. Please try again later.
+                </div>
             </div>
         `;
     }
@@ -509,15 +530,24 @@ We appreciate your patience as we work to deliver a high-quality product that me
         container.innerHTML = updates.map(update => `
             <article class="update-card">
                 <div class="update-header">
-                    <div>
-                        <h3 class="update-title">${this.escapeHtml(update.title)}</h3>
-                        <div class="update-meta">
+                    <h3 class="update-title">${this.escapeHtml(update.title)}</h3>
+                    <div class="update-meta-bubbles">
+                        <div class="meta-bubble type-bubble">
                             <span class="update-type ${update.type}">${this.escapeHtml(update.type)}</span>
-                            ${update.version ? `<span class="update-version">${this.escapeHtml(update.version)}</span>` : ''}
-                            <span class="update-date">${this.formatDate(update.created_at)}</span>
-                            ${update.author ? `<span class="update-author">by ${this.escapeHtml(update.author)}</span>` : ''}
-                            ${update.priority && update.priority !== 'normal' ? `<span class="update-priority ${update.priority}">${this.escapeHtml(update.priority)}</span>` : ''}
                         </div>
+                        <div class="meta-bubble date-bubble">
+                            <span class="update-date">${this.formatDate(update.created_at)}</span>
+                        </div>
+                        ${update.author ? `
+                            <div class="meta-bubble author-bubble">
+                                <span class="update-author">by ${this.escapeHtml(update.author)}</span>
+                            </div>
+                        ` : ''}
+                        ${update.priority && update.priority !== 'normal' ? `
+                            <div class="meta-bubble priority-bubble">
+                                <span class="update-priority ${update.priority}">${this.escapeHtml(update.priority)}</span>
+                            </div>
+                        ` : ''}
                     </div>
                 </div>
                 <div class="update-content">${this.escapeHtml(update.content)}</div>
