@@ -660,24 +660,24 @@ function showUnavailableMessage(platform) {
     // Create modal content
     const modal = document.createElement('div');
     modal.style.cssText = `
-        background: rgba(17, 24, 39, 0.95);
-        backdrop-filter: blur(20px);
-        border: 2px solid rgba(16, 185, 129, 0.3);
-        border-radius: 12px;
-        padding: 2rem;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(25px) saturate(180%);
+        border: 1px solid rgba(174, 174, 90, 0.2);
+        border-radius: 18px;
+        padding: 30px;
         text-align: center;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(16, 185, 129, 0.5);
-        max-width: 400px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        max-width: 500px;
         margin: 20px;
         animation: slideIn 0.3s ease;
     `;
 
     modal.innerHTML = `
         <div style="font-size: 3rem; margin-bottom: 1rem;">📱</div>
-        <h3 style="color: var(--background-primary); margin-bottom: 1rem; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">
+        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: clamp(20px, 4vw, 24px); font-weight: 700; text-shadow: 0 0 15px rgba(174, 174, 90, 0.3);">
             App Currently Unavailable
         </h3>
-        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem; line-height: 1.6;">
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6; font-size: clamp(14px, 2.5vw, 16px);">
             The ${platform} app is currently in development and not yet available for download. 
             Please check back later for updates.
         </p>
@@ -685,14 +685,15 @@ function showUnavailableMessage(platform) {
             background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
             color: var(--background-primary);
             border: none;
-            padding: 0.75rem 2rem;
-            border-radius: 8px;
+            padding: 14px 24px;
+            border-radius: 10px;
             font-weight: 600;
+            font-size: clamp(14px, 2.5vw, 16px);
             cursor: pointer;
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
-            transition: all 0.3s ease;
-        " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 0 30px rgba(16, 185, 129, 0.8)'" 
-           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 0 20px rgba(16, 185, 129, 0.5)'">
+            box-shadow: 0 4px 15px rgba(174, 174, 90, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(174, 174, 90, 0.4)'" 
+           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(174, 174, 90, 0.3)'">
             Got It
         </button>
     `;
