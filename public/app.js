@@ -79,7 +79,7 @@ class UpdatesApp {
                                  <span class="version-status development">In Development</span>
                              </div>
                             <p class="version-notes">Internal testing phase - not ready for public release</p>
-                            <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: October 1st, 2025</small>
+                            <small class="version-date" style="background: rgba(79, 70, 229, 0.1); padding: 4px 8px; border-radius: 8px; font-weight: 600; color: #4f46e5;">Milestone: October 1st, 2025</small>
                         </div>
                     </div>
                 </div>
@@ -190,9 +190,9 @@ We appreciate your patience as we work to deliver a high-quality product that me
                 versions: {
                      test: {
                          version: "v1.0.0",
-                         status: "in development",
+                         status: "development",
                          last_updated: "2024-02-15T10:00:00Z",
-                         notes: "Internal testing phase - not ready for public release"
+                         notes: "Internal testing phase - development in progress"
                      },
                     beta: {
                         version: "v1.0.0",
@@ -244,7 +244,7 @@ We appreciate your patience as we work to deliver a high-quality product that me
         }
 
         container.innerHTML = appStatus.map(app => `
-            <div class="app-status-card">
+            <div class="app-status-card slide-up">
                 <div class="app-header">
                     <h4>${this.escapeHtml(app.name)}</h4>
                     <span class="overall-status ${app.overall_status}">${this.escapeHtml(app.overall_status)}</span>
@@ -258,7 +258,7 @@ We appreciate your patience as we work to deliver a high-quality product that me
                             <span class="version-status ${app.versions.test.status}">${this.escapeHtml(app.versions.test.status)}</span>
                         </div>
                         <p class="version-notes">${this.escapeHtml(app.versions.test.notes)}</p>
-                        <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: October 1st, 2025</small>
+                        <small class="version-date" style="background: rgba(79, 70, 229, 0.1); padding: 4px 8px; border-radius: 8px; font-weight: 600; color: #4f46e5;">Milestone: October 1st, 2025</small>
                     </div>
                     
                     <div class="version-card beta">
@@ -268,7 +268,7 @@ We appreciate your patience as we work to deliver a high-quality product that me
                             <span class="version-status ${app.versions.beta.status}">${this.escapeHtml(app.versions.beta.status)}</span>
                         </div>
                         <p class="version-notes">${this.escapeHtml(app.versions.beta.notes)}</p>
-                        <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: November 1st, 2025</small>
+                        <small class="version-date" style="background: rgba(79, 70, 229, 0.1); padding: 4px 8px; border-radius: 8px; font-weight: 600; color: #4f46e5;">Milestone: November 1st, 2025</small>
                     </div>
                     
                     <div class="version-card release">
@@ -278,7 +278,7 @@ We appreciate your patience as we work to deliver a high-quality product that me
                             <span class="version-status ${app.versions.release.status}">${this.escapeHtml(app.versions.release.status)}</span>
                         </div>
                         <p class="version-notes">${this.escapeHtml(app.versions.release.notes)}</p>
-                        <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: December 1st, 2025</small>
+                        <small class="version-date" style="background: rgba(79, 70, 229, 0.1); padding: 4px 8px; border-radius: 8px; font-weight: 600; color: #4f46e5;">Milestone: December 1st, 2025</small>
                 </div>
                 
                     <div class="version-card launch">
@@ -288,7 +288,7 @@ We appreciate your patience as we work to deliver a high-quality product that me
                             <span class="version-status ${app.versions.launch.status}">${this.escapeHtml(app.versions.launch.status)}</span>
                         </div>
                         <p class="version-notes">${this.escapeHtml(app.versions.launch.notes)}</p>
-                        <small class="version-date" style="background: rgba(174, 174, 90, 0.3); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Milestone: January 1st, 2026</small>
+                        <small class="version-date" style="background: rgba(79, 70, 229, 0.1); padding: 4px 8px; border-radius: 8px; font-weight: 600; color: #4f46e5;">Milestone: January 1st, 2026</small>
                     </div>
                 </div>
             </div>
@@ -344,8 +344,8 @@ We appreciate your patience as we work to deliver a high-quality product that me
             }
 
         // Create individual cards for each category
-        container.innerHTML = operations.map(category => `
-                        <div class="operation-item">
+        container.innerHTML = operations.map((category, index) => `
+                        <div class="operation-item slide-up stagger-${index + 1}">
                             <div class="operation-header">
                     <h4 class="operation-title">${this.escapeHtml(category.category)}</h4>
                     <span class="operation-status ${category.items && category.items.length > 0 ? 'active' : 'inactive'}">
