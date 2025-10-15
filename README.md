@@ -1,16 +1,16 @@
-# SigSecSpec - Operations Status Portal
+# Signature Security Specialties - Professional Website
 
-A modern, responsive web application for displaying company operations status, app development progress, and important updates. Built with vanilla HTML, CSS, and JavaScript for optimal performance and compatibility.
+A modern, responsive website showcasing professional security services, consulting, and digital solutions. Built with cutting-edge web technologies and modern design principles for optimal performance and user experience.
 
 ## 🛡️ Features
 
-- **Real-time Operations Status**: Track licenses, insurance, certifications, and permits
-- **App Development Progress**: Monitor test, beta, and release versions
-- **Important Updates**: Company announcements with filtering and pagination
-- **Modern UI**: Black, white, grey, and emerald green color scheme
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **Interactive Elements**: Particle system and floating animations
-- **Admin Guide**: Built-in documentation for content management
+- **Modern Hero Section**: Eye-catching hero with animated elements and clear value proposition
+- **Service Showcase**: Comprehensive display of cybersecurity, consulting, and digital solutions
+- **Interactive Animations**: Smooth animations, particle effects, and floating elements
+- **Responsive Design**: Optimized for all devices from mobile to desktop
+- **Contact Integration**: Professional contact form with validation and user feedback
+- **Status Dashboard**: Real-time system status and development progress tracking
+- **Performance Optimized**: Fast loading times with modern CSS and JavaScriptt management
 
 ## 🚀 Live Demo
 
@@ -30,25 +30,21 @@ SigSecSpec/
 │   └── floating-elements.js # Floating background animations
 ├── README.md               # This file
 ├── .gitignore             # Git ignore rules
-└── 404.html               # Custom error page
-```
+└── 404.html               # Cus## 🎨 Design System
 
-## 🎨 Design System
+The website uses a modern, professional color palette:
+- **Primary**: Modern Blue (#0ea5e9) - Trust and professionalism
+- **Accent**: Emerald Green (#10b981) - Growth and security
+- **Neutral**: Sophisticated grays (#f8fafc to #0f172a) - Clean and modern
+- **Typography**: Inter & Space Grotesk - Modern, readable fonts
+- **Layout**: Clean, spacious design with purposeful white spaceld green gl## 📱 Content Management
 
-The application uses a consistent color scheme:
-- **Primary**: Emerald Green (#10b981)
-- **Background**: Dark gradient with black, white, and grey tones
-- **Text**: High contrast white text on dark backgrounds
-- **Accents**: Subtle emerald green glows and highlights
+The website features:
 
-## 📱 Content Management
-
-All content is managed through the JavaScript file `public/app.js`. The admin guide (`admin.html`) provides detailed instructions for:
-
-- Updating app status information
-- Managing operations data (licenses, insurance, etc.)
-- Adding important company updates
-- Managing app download links
+- **Static Content**: Service descriptions, company information, and contact details
+- **Dynamic Elements**: Interactive animations, contact form, and status updates
+- **Easy Customization**: Well-organized CSS variables and modular JavaScript
+- **Admin Access**: Admin panel available at `/admin.html` for advanced configuration- Managing app download links
 
 ## 🛠️ Setup Instructions
 

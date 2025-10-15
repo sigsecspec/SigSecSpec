@@ -3,371 +3,520 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>SigSecSpec</title>
+    <meta name="description" content="Signature Security Specialties - Professional security services, consulting, and digital solutions for businesses and organizations.">
+    <meta name="keywords" content="security services, cybersecurity, digital security, consulting, business security">
+    <title>Signature Security Specialties | Professional Security Solutions</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="public/styles.css?v=15">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="public/styles.css?v=20">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
-    <style>
-        /* Modern fallback styles */
-        body { 
-            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-            color: #0f172a;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            color: #0f172a;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .logo h1 {
-            color: #4f46e5;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        .nav {
-            display: flex;
-            gap: 1rem;
-        }
-        .nav-link {
-            color: #64748b;
-            text-decoration: none;
-            padding: 0.75rem 1rem;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            background: #f1f5f9;
-            border: 1px solid #e2e8f0;
-        }
-        .nav-link:hover, .nav-link.active {
-            background: #4f46e5;
-            color: #f8fafc;
-            border-color: #4f46e5;
-        }
-    </style>
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Signature Security Specialties">
+    <meta property="og:description" content="Professional security services, consulting, and digital solutions for businesses and organizations.">
+    <meta property="og:url" content="https://sigsecspec.com">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Signature Security Specialties">
+    <meta name="twitter:description" content="Professional security services, consulting, and digital solutions.">
 </head>
 <body>
-    <header class="header">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
         <div class="container">
-            <div class="header-content">
+            <div class="nav-content">
                 <div class="logo">
-                    <div class="logo-image">
-                        <img src="public/images/hero-bg.jpg" alt="SigSec Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
-                        <span class="logo-icon" style="display: none;">🛡️</span>
-                    </div>
-                    <h1>Signature Security Specialties</h1>
+                    <span class="logo-icon">🛡️</span>
+                    <span class="logo-text">SigSec</span>
                 </div>
-                <nav class="nav">
-                    <div class="nav-row top">
-                        <a href="#updates" class="nav-link active">Updates</a>
-                        <a href="#app-status" class="nav-link">App Status</a>
-                        <a href="#operations" class="nav-link">Operations</a>
-                    </div>
-                    <div class="nav-row bottom">
-                        <a href="#download" class="nav-link download">Download</a>
-                    </div>
-                </nav>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#status" class="nav-link">Status</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <main class="main">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+        
         <div class="container">
-            <!-- Hero Section -->
-            <section class="hero">
-                <div class="hero-background">
-                    <img src="public/images/logo.png" alt="SigSec Background" class="hero-bg-img" onerror="this.style.display='none';">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">🛡️ Trusted Security Solutions</span>
                 </div>
-                <div class="hero-content">
-                    <h2>Company Operations Status</h2>
-                    <p>Real-time status monitoring and updates for our website, applications, and company operations. This portal provides comprehensive visibility into system health, deployment status, and operational activities for our operations team, development staff, and authorized clients.</p>
-                    <p class="hero-subtitle">Access current system status, download latest application versions, and stay informed about ongoing operations and maintenance activities.</p>
+                
+                <h1 class="hero-title">
+                    Signature Security
+                    <span class="highlight">Specialties</span>
+                </h1>
+                
+                <p class="hero-description">
+                    Professional security services, consulting, and digital solutions designed to protect your business, assets, and operations with cutting-edge technology and expert knowledge.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">
+                        <span>Our Services</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Get Started</span>
+                    </a>
                 </div>
-            </section>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Clients Protected</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Monitoring</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Uptime</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <!-- Important Information Section -->
-            <section id="updates" class="updates-section">
-                <div class="section-header">
-                    <h3>Important Information</h3>
-                    <div class="filter-controls">
-                        <select id="type-filter" class="filter-select">
-                            <option value="">All Updates</option>
-                            <option value="update">General Updates</option>
-                            <option value="feature">New Features</option>
-                            <option value="bugfix">Bug Fixes</option>
-                            <option value="security">Security Updates</option>
-                            <option value="maintenance">Maintenance</option>
-                            <option value="operations">Operations</option>
-                        </select>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>🔒 Our Expertise</span>
+                </div>
+                <h2 class="section-title">Comprehensive Security Solutions</h2>
+                <p class="section-description">
+                    We provide end-to-end security services tailored to your specific needs, from digital protection to physical security consulting.
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Cybersecurity</h3>
+                    <p class="service-description">
+                        Advanced threat detection, network security, and digital asset protection with real-time monitoring and response.
+                    </p>
+                    <ul class="service-features">
+                        <li>Network Security Assessment</li>
+                        <li>Threat Detection & Response</li>
+                        <li>Security Compliance Audits</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Risk Assessment</h3>
+                    <p class="service-description">
+                        Comprehensive security risk analysis and vulnerability assessments to identify and mitigate potential threats.
+                    </p>
+                    <ul class="service-features">
+                        <li>Vulnerability Scanning</li>
+                        <li>Risk Analysis Reports</li>
+                        <li>Security Recommendations</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Security Consulting</h3>
+                    <p class="service-description">
+                        Expert consultation on security policies, procedures, and best practices for organizations of all sizes.
+                    </p>
+                    <ul class="service-features">
+                        <li>Security Policy Development</li>
+                        <li>Staff Training Programs</li>
+                        <li>Compliance Consulting</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Digital Solutions</h3>
+                    <p class="service-description">
+                        Custom security applications and digital tools designed to enhance your organization's security posture.
+                    </p>
+                    <ul class="service-features">
+                        <li>Mobile Security Apps</li>
+                        <li>Custom Security Tools</li>
+                        <li>Integration Services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-badge">
+                        <span>👥 About Us</span>
+                    </div>
+                    <h2 class="section-title">Protecting What Matters Most</h2>
+                    <p class="about-description">
+                        With years of experience in security consulting and digital protection, Signature Security Specialties has built a reputation for delivering comprehensive, reliable security solutions that adapt to the evolving threat landscape.
+                    </p>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">
+                                <strong>Expert Team:</strong> Certified security professionals with extensive industry experience
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">
+                                <strong>Proven Track Record:</strong> Successfully protected hundreds of organizations
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">
+                                <strong>24/7 Support:</strong> Round-the-clock monitoring and rapid response capabilities
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div id="updates-container" class="updates-container">
-                    <div class="loading">Loading updates...</div>
-                    <!-- Fallback content in case JavaScript doesn't load -->
-                    <noscript>
-                    </noscript>
+                <div class="about-visual">
+                    <div class="visual-card">
+                        <div class="card-content">
+                            <div class="metric">
+                                <div class="metric-value">500+</div>
+                                <div class="metric-label">Clients Served</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">99.9%</div>
+                                <div class="metric-label">Success Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Status Section -->
+    <section id="status" class="status">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>📊 System Status</span>
+                </div>
+                <h2 class="section-title">Operations & Development Status</h2>
+                <p class="section-description">
+                    Real-time monitoring of our systems, services, and development progress.
+                </p>
+            </div>
+
+            <div class="status-grid">
+                <!-- System Status -->
+                <div class="status-card">
+                    <div class="status-header">
+                        <h3>System Health</h3>
+                        <div class="status-indicator online">
+                            <span class="indicator-dot"></span>
+                            <span>All Systems Operational</span>
+                        </div>
+                    </div>
+                    <div class="status-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Uptime</div>
+                            <div class="metric-value">99.9%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Response Time</div>
+                            <div class="metric-value">< 200ms</div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="pagination">
-                    <button id="prev-page" class="pagination-btn" disabled>Previous</button>
-                    <span id="page-info" class="page-info">Page 1</span>
-                    <button id="next-page" class="pagination-btn">Next</button>
-                </div>
-            </section>
-
-            <!-- App Status Section -->
-            <section id="app-status" class="app-status-section">
-                <div class="section-header">
-                    <h3>Website & App Status</h3>
-                    <p>Current development status of our digital platforms</p>
-                </div>
-                <div id="app-status-container" class="app-status-container">
-                    <div class="loading">Loading app status...</div>
-                    <!-- Fallback content in case JavaScript doesn't load -->
-                    <noscript>
-                        <div class="app-status-card">
-                            <div class="app-header">
-                                <h4>Version 1.0.0</h4>
-                                <span class="overall-status unreleased">UnReleased</span>
-                            </div>
-                            <div class="version-grid">
-                                <div class="version-card test">
-                                    <h5>Test</h5>
-                                    <div class="version-info">
-                                        <span class="version-number">v1.0.0</span>
-                                        <span class="version-status unreleased">unreleased</span>
-                                    </div>
-                                    <p class="version-notes">Internal testing phase - not ready for public release</p>
-                                    <small class="version-date" style="background: rgba(79, 70, 229, 0.1); padding: 4px 8px; border-radius: 8px; font-weight: 600; color: #4f46e5;">Milestone: October 1st, 2025</small>
-                                </div>
-                                <div class="version-card beta">
-                                    <h5>Beta</h5>
-                                    <div class="version-info">
-                                        <span class="version-number">v1.0.0</span>
-                                        <span class="version-status unreleased">unreleased</span>
-                                    </div>
-                                    <p class="version-notes">Beta version not yet available</p>
-                                    <small class="version-date" style="background: rgba(79, 70, 229, 0.1); padding: 4px 8px; border-radius: 8px; font-weight: 600; color: #4f46e5;">Milestone: November 1st, 2025</small>
-                                </div>
-                                <div class="version-card release">
-                                    <h5>Public Release</h5>
-                                    <div class="version-info">
-                                        <span class="version-number">v1.0.0</span>
-                                        <span class="version-status unreleased">unreleased</span>
-                                    </div>
-                                    <p class="version-notes">Production release pending final testing and approval</p>
-                                    <small class="version-date" style="background: rgba(79, 70, 229, 0.1); padding: 4px 8px; border-radius: 8px; font-weight: 600; color: #4f46e5;">Milestone: December 1st, 2025</small>
-                                </div>
-                                <div class="version-card launch">
-                                    <h5>Launch Release</h5>
-                                    <div class="version-info">
-                                        <span class="version-number">v1.0.0</span>
-                                        <span class="version-status unreleased">unreleased</span>
-                                    </div>
-                                    <p class="version-notes">Full public launch with all features and services</p>
-                                    <small class="version-date" style="background: rgba(79, 70, 229, 0.1); padding: 4px 8px; border-radius: 8px; font-weight: 600; color: #4f46e5;">Milestone: January 1st, 2026</small>
-                                </div>
+                <!-- Development Status -->
+                <div class="status-card">
+                    <div class="status-header">
+                        <h3>Development Progress</h3>
+                        <div class="status-indicator development">
+                            <span class="indicator-dot"></span>
+                            <span>In Development</span>
+                        </div>
+                    </div>
+                    <div class="development-timeline">
+                        <div class="timeline-item completed">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Planning Phase</div>
+                                <div class="timeline-date">Completed</div>
                             </div>
                         </div>
-                    </noscript>
+                        <div class="timeline-item active">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Development</div>
+                                <div class="timeline-date">In Progress</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Testing</div>
+                                <div class="timeline-date">Q4 2025</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Launch</div>
+                                <div class="timeline-date">Q1 2026</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
-
-            <!-- Operations Section -->
-            <section id="operations" class="operations-section">
-                <div class="section-header">
-                    <h3>Company Operations</h3>
-                    <p>Business licenses, insurance, certifications, and permits status</p>
+            </div>
+            
+            <!-- Updates Section -->
+            <div class="updates-section">
+                <h3>Recent Updates</h3>
+                <div id="updates-container" class="updates-container">
+                    <div class="update-card">
+                        <div class="update-header">
+                            <div class="update-badge">Development</div>
+                            <div class="update-date">October 15, 2025</div>
+                        </div>
+                        <h4 class="update-title">Website Redesign Complete</h4>
+                        <p class="update-content">
+                            We've completely redesigned our website with a modern, professional interface that better showcases our security services and capabilities. The new design features improved navigation, enhanced mobile responsiveness, and clearer service descriptions.
+                        </p>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="update-header">
+                            <div class="update-badge">Progress</div>
+                            <div class="update-date">September 18, 2025</div>
+                        </div>
+                        <h4 class="update-title">Mobile Application Development</h4>
+                        <p class="update-content">
+                            Our development team continues to work on the mobile security application. We're targeting a test release for Q4 2025, with beta testing to follow in early 2026.
+                        </p>
+                    </div>
                 </div>
-                <div id="operations-container" class="operations-container">
-                    <div class="loading">Loading operations status...</div>
-                    <!-- Fallback content in case JavaScript doesn't load -->
-                    <noscript>
-                        <div class="operation-item">
-                            <div class="operation-header">
-                                <h4 class="operation-title">Licenses</h4>
-                                <span class="operation-status inactive">Pending</span>
-                            </div>
-                            <div class="operation-description">
-                                Licenses documentation and verification in progress
-                            </div>
-                            <div class="operation-meta">
-                                <span>Status: In Progress</span>
-                                <span>Last Updated: September 18, 2025</span>
-                            </div>
-                        </div>
-                        <div class="operation-item">
-                            <div class="operation-header">
-                                <h4 class="operation-title">Insurance</h4>
-                                <span class="operation-status inactive">Pending</span>
-                            </div>
-                            <div class="operation-description">
-                                Insurance documentation and verification in progress
-                            </div>
-                            <div class="operation-meta">
-                                <span>Status: In Progress</span>
-                                <span>Last Updated: September 18, 2025</span>
-                            </div>
-                        </div>
-                        <div class="operation-item">
-                            <div class="operation-header">
-                                <h4 class="operation-title">Certifications</h4>
-                                <span class="operation-status inactive">Pending</span>
-                            </div>
-                            <div class="operation-description">
-                                Certifications documentation and verification in progress
-                            </div>
-                            <div class="operation-meta">
-                                <span>Status: In Progress</span>
-                                <span>Last Updated: September 18, 2025</span>
-                            </div>
-                        </div>
-                        <div class="operation-item">
-                            <div class="operation-header">
-                                <h4 class="operation-title">Permits</h4>
-                                <span class="operation-status inactive">Pending</span>
-                            </div>
-                            <div class="operation-description">
-                                Permits documentation and verification in progress
-                            </div>
-                            <div class="operation-meta">
-                                <span>Status: In Progress</span>
-                                <span>Last Updated: September 18, 2025</span>
-                            </div>
-                        </div>
-                    </noscript>
-                </div>
-            </section>
-
-            <!-- App Download Section -->
-            <section id="download" class="download-section">
-                <div class="section-header">
-                    <h3>Download Official App</h3>
-                    <p>Get the latest version of the SigSec mobile application</p>
-                </div>
-                <div id="app-links" class="app-links">
-                    <div class="loading">Loading download links...</div>
-                    <!-- Fallback content in case JavaScript doesn't load -->
-                    <noscript>
-                        <div class="app-link-item">
-                            <div class="app-link-header">
-                                <h4 class="app-link-title">Android</h4>
-                                <span class="operation-status inactive">Unavailable</span>
-                            </div>
-                            <div class="app-link-meta">
-                                <span>Version: 1.0.0</span>
-                                <span>Size: 28.7 MB</span>
-                                <span>Platform: Android</span>
-                            </div>
-                            <div class="operation-description">
-                                App currently unavailable - in development
-                            </div>
-                            <a href="#" class="download-btn" onclick="alert('App currently unavailable - in development'); return false;">
-                                Download for Android
-                            </a>
-                        </div>
-                        <div class="app-link-item">
-                            <div class="app-link-header">
-                                <h4 class="app-link-title">iOS</h4>
-                                <span class="operation-status inactive">Unavailable</span>
-                            </div>
-                            <div class="app-link-meta">
-                                <span>Version: 1.0.0</span>
-                                <span>Size: 25.4 MB</span>
-                                <span>Platform: iOS</span>
-                            </div>
-                            <div class="operation-description">
-                                App currently unavailable - in development
-                            </div>
-                            <a href="#" class="download-btn" onclick="alert('App currently unavailable - in development'); return false;">
-                                Download for iOS
-                            </a>
-                        </div>
-                    </noscript>
-                </div>
-            </section>
-
+            </div>
         </div>
-    </main>
+    </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="section-badge">
+                        <span>📞 Get In Touch</span>
+                    </div>
+                    <h2 class="section-title">Ready to Secure Your Business?</h2>
+                    <p class="contact-description">
+                        Contact us today to discuss your security needs and learn how we can help protect your organization with our comprehensive security solutions.
+                    </p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="m3.27 6.96 8.73 4.89 8.73-4.89M12 21.84V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="method-content">
+                                <div class="method-title">Email</div>
+                                <div class="method-value">contact@sigsecspec.com</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="method-content">
+                                <div class="method-title">Phone</div>
+                                <div class="method-value">+1 (555) 123-4567</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="method-content">
+                                <div class="method-title">Location</div>
+                                <div class="method-value">Available Nationwide</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interest</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="cybersecurity">Cybersecurity</option>
+                                <option value="risk-assessment">Risk Assessment</option>
+                                <option value="consulting">Security Consulting</option>
+                                <option value="digital-solutions">Digital Solutions</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your security needs..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary form-submit">
+                            <span>Send Message</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="public/images/hero-bg.jpg" alt="SigSec Logo" class="footer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
-                    <span class="footer-logo-icon" style="display: none;">🛡️</span>
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <span class="logo-icon">🛡️</span>
+                            <span class="logo-text">SigSec</span>
+                        </div>
+                        <p class="footer-description">
+                            Professional security services and digital solutions for modern businesses.
+                        </p>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4>Services</h4>
+                            <ul>
+                                <li><a href="#services">Cybersecurity</a></li>
+                                <li><a href="#services">Risk Assessment</a></li>
+                                <li><a href="#services">Consulting</a></li>
+                                <li><a href="#services">Digital Solutions</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4>Company</h4>
+                            <ul>
+                                <li><a href="#about">About Us</a></li>
+                                <li><a href="#status">Status</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                                <li><a href="admin.html">Admin</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4>Contact</h4>
+                            <ul>
+                                <li>contact@sigsecspec.com</li>
+                                <li>+1 (555) 123-4567</li>
+                                <li>Available Nationwide</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-text">
-                    <p>&copy; 2024 SigSec. All rights reserved.</p>
-                    <p>Company Operations Status Portal</p>
-                    <p style="margin-top: 10px; font-size: 12px; opacity: 0.7;">Made with llove by StickzCoder.Lua and Crumb3D</p>
+                
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>&copy; 2024 Signature Security Specialties. All rights reserved.</p>
+                    </div>
+                    <div class="footer-credits">
+                        <p>Designed with excellence by the SigSec team</p>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="public/particles.js?v=3"></script>
-    <script src="public/app.js?v=11"></script>
-    
-    <!-- Final safety check to ensure content is always visible -->
-    <script>
-        // Emergency fallback - if nothing loads after 5 seconds, show content
-        setTimeout(function() {
-            const loadingElements = document.querySelectorAll('.loading');
-            let stillLoading = false;
-            
-            loadingElements.forEach(el => {
-                if (el.style.display !== 'none' && el.offsetParent !== null) {
-                    stillLoading = true;
-                }
-            });
-            
-            if (stillLoading) {
-                console.log('Emergency fallback triggered - showing content');
-                
-                // Hide all loading messages
-                loadingElements.forEach(el => {
-                    el.style.display = 'none';
-                });
-                
-                // Show noscript content
-                const noscriptElements = document.querySelectorAll('noscript');
-                noscriptElements.forEach(noscript => {
-                    const fallbackContent = noscript.innerHTML;
-                    noscript.parentNode.insertAdjacentHTML('beforeend', fallbackContent);
-                });
-                
-                // Add emergency message
-                const mainContent = document.querySelector('.main .container');
-                if (mainContent) {
-                    const emergencyDiv = document.createElement('div');
-                    emergencyDiv.className = 'status-card error';
-                    emergencyDiv.style.marginBottom = '2rem';
-                    emergencyDiv.innerHTML = `
-                        <h4>⚠️ Loading Timeout</h4>
-                        <p>The interactive features are taking longer than expected to load. The content above shows the latest available information.</p>
-                        <p><strong>If you continue to see this message:</strong> Try refreshing the page or check your internet connection.</p>
-                    `;
-                    mainContent.insertBefore(emergencyDiv, mainContent.firstChild);
-                }
-            }
-        }, 5000);
-    </script>
+    <!-- Scripts -->
+    <script src="public/app.js?v=20"></script>
 </body>
 </html>
