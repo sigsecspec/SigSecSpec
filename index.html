@@ -12,26 +12,54 @@
         }
 
         :root {
-            --primary-color: #4a90e2;
-            --secondary-color: #5c6ac4;
-            --accent-color: #47c9a2;
-            --dark-bg: #0a0e27;
-            --card-bg: #161b3d;
-            --text-light: #ffffff;
-            --text-muted: #a0a9c9;
-            --border-color: #2d3561;
-            --success-color: #47c9a2;
+            --ebony: #2c2c2c;
+            --sage: #9caf88;
+            --black: #000000;
+            --white: #ffffff;
+            --grey: #808080;
+            --primary-color: var(--sage);
+            --secondary-color: var(--ebony);
+            --accent-color: var(--sage);
+            --dark-bg: var(--black);
+            --card-bg: var(--ebony);
+            --text-light: var(--white);
+            --text-muted: var(--grey);
+            --border-color: var(--grey);
+            --success-color: var(--sage);
             --hover-scale: 1.05;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #0a0e27 0%, #161b3d 50%, #1e2554 100%);
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(156, 175, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(44, 44, 44, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(128, 128, 128, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, var(--black) 0%, var(--ebony) 50%, var(--black) 100%);
+            background-attachment: fixed;
             min-height: 100vh;
             color: var(--text-light);
             overflow-x: hidden;
             position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 100px,
+                    rgba(156, 175, 136, 0.02) 100px,
+                    rgba(156, 175, 136, 0.02) 101px
+                );
+            z-index: -1;
         }
 
         /* Animated Background */
@@ -53,7 +81,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(156, 175, 136, 0.1) 0%, transparent 70%);
             animation: rotate 30s linear infinite;
         }
 
@@ -64,7 +92,7 @@
             right: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(44, 44, 44, 0.2) 0%, transparent 70%);
             animation: rotate 25s linear infinite reverse;
         }
 
@@ -130,15 +158,36 @@
             width: 80px;
             height: 80px;
             margin: 0 auto 2rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: 
+                radial-gradient(circle at 30% 30%, var(--white) 0%, var(--sage) 70%, var(--ebony) 100%),
+                conic-gradient(from 45deg, var(--sage), var(--white), var(--sage), var(--ebony));
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.5rem;
             font-weight: bold;
-            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+            box-shadow: 0 10px 30px rgba(156, 175, 136, 0.3);
             animation: pulse 2s infinite;
+            border: 2px solid var(--sage);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-conic-gradient(
+                from 0deg at 50% 50%,
+                transparent 0deg,
+                rgba(156, 175, 136, 0.1) 45deg,
+                transparent 90deg
+            );
+            animation: rotate 10s linear infinite;
         }
 
         @keyframes pulse {
@@ -167,14 +216,17 @@
         /* App Cards Grid */
         .apps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-top: 4rem;
             padding: 0 1rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .app-card {
-            background: linear-gradient(135deg, var(--card-bg), rgba(92, 106, 196, 0.1));
+            background: linear-gradient(135deg, var(--card-bg), rgba(156, 175, 136, 0.1));
             border-radius: 20px;
             padding: 2.5rem;
             position: relative;
@@ -183,6 +235,8 @@
             transition: var(--transition);
             animation: fadeInUp 0.8s ease-out;
             animation-fill-mode: both;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .app-card:nth-child(1) { animation-delay: 0.1s; }
@@ -207,7 +261,7 @@
 
         .app-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(74, 144, 226, 0.2);
+            box-shadow: 0 20px 40px rgba(156, 175, 136, 0.3);
             border-color: var(--primary-color);
         }
 
@@ -221,8 +275,9 @@
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            box-shadow: 0 10px 20px rgba(74, 144, 226, 0.2);
+            box-shadow: 0 10px 20px rgba(156, 175, 136, 0.2);
             transition: var(--transition);
+            border: 2px solid var(--white);
         }
 
         .app-card:hover .app-icon {
@@ -230,11 +285,11 @@
         }
 
         .app-card:nth-child(2) .app-icon {
-            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            background: linear-gradient(135deg, var(--ebony), var(--sage));
         }
 
         .app-card:nth-child(3) .app-icon {
-            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            background: linear-gradient(135deg, var(--sage), var(--grey));
         }
 
         .app-name {
@@ -261,17 +316,17 @@
         }
 
         .platform-badge {
-            background: rgba(74, 144, 226, 0.1);
+            background: rgba(156, 175, 136, 0.1);
             color: var(--primary-color);
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.875rem;
-            border: 1px solid rgba(74, 144, 226, 0.3);
+            border: 1px solid rgba(156, 175, 136, 0.3);
             transition: var(--transition);
         }
 
         .platform-badge:hover {
-            background: rgba(74, 144, 226, 0.2);
+            background: rgba(156, 175, 136, 0.2);
             transform: scale(1.05);
         }
 
@@ -313,7 +368,7 @@
 
         .download-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.4);
+            box-shadow: 0 10px 30px rgba(156, 175, 136, 0.4);
         }
 
         .download-btn span {
@@ -399,6 +454,17 @@
         }
 
         /* Responsive */
+        @media (max-width: 1200px) {
+            .apps-grid {
+                gap: 1.5rem;
+                padding: 0 0.5rem;
+            }
+            
+            .app-card {
+                padding: 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -409,12 +475,64 @@
             }
             
             .apps-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+                padding: 0 0.5rem;
             }
             
             .app-card {
-                padding: 2rem;
+                padding: 1.5rem;
+            }
+            
+            .app-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .app-name {
+                font-size: 1.2rem;
+            }
+            
+            .app-description {
+                font-size: 0.9rem;
+                min-height: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .apps-grid {
+                gap: 0.5rem;
+                padding: 0 0.25rem;
+            }
+            
+            .app-card {
+                padding: 1rem;
+            }
+            
+            .app-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .app-name {
+                font-size: 1rem;
+            }
+            
+            .app-description {
+                font-size: 0.8rem;
+                min-height: 60px;
+            }
+            
+            .platform-badge {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.75rem;
+            }
+            
+            .download-btn {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -468,7 +586,7 @@
             <div class="app-card">
                 <div class="app-icon">🎯</div>
                 <h2 class="app-name">Operations Platform</h2>
-                <p class="app-description">Comprehensive operations management system for enterprise-level control and monitoring.</p>
+                <p class="app-description">Streamline your business operations with our comprehensive management system. Features real-time analytics, automated workflows, and enterprise-grade security for complete operational control.</p>
                 <div class="platforms">
                     <span class="platform-badge">Windows</span>
                     <span class="platform-badge">macOS</span>
@@ -488,7 +606,7 @@
             <div class="app-card">
                 <div class="app-icon">🤝</div>
                 <h2 class="app-name">Companion App</h2>
-                <p class="app-description">Your intelligent assistant for seamless integration and enhanced collaboration features.</p>
+                <p class="app-description">Your intelligent mobile companion that seamlessly integrates with all your devices. AI-powered assistance, smart notifications, and collaborative tools that keep you connected and productive wherever you go.</p>
                 <div class="platforms">
                     <span class="platform-badge">iOS</span>
                     <span class="platform-badge">Android</span>
@@ -508,7 +626,7 @@
             <div class="app-card">
                 <div class="app-icon">💬</div>
                 <h2 class="app-name">Messenger App</h2>
-                <p class="app-description">Secure, fast, and reliable messaging platform with end-to-end encryption and rich media support.</p>
+                <p class="app-description">Experience next-generation secure messaging with military-grade encryption. Share files, create group chats, make voice calls, and collaborate in real-time with confidence and privacy.</p>
                 <div class="platforms">
                     <span class="platform-badge">iOS</span>
                     <span class="platform-badge">Android</span>
@@ -564,13 +682,13 @@
             // Simulate download preparation
             setTimeout(() => {
                 btn.innerHTML = '<span>Download Started! ✓</span>';
-                btn.style.background = 'linear-gradient(135deg, #47c9a2, #4a90e2)';
+                btn.style.background = 'linear-gradient(135deg, var(--sage), var(--ebony))';
                 
                 // Reset button after animation
                 setTimeout(() => {
                     btn.innerHTML = originalText;
                     btn.style.pointerEvents = 'auto';
-                    btn.style.background = '';
+                    btn.style.background = 'linear-gradient(135deg, var(--primary-color), var(--secondary-color))';
                 }, 2000);
                 
                 // In a real application, you would trigger the actual download here
