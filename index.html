@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Our Apps</title>
+    <title>Signature Security Specialist - Complete Digital Security Platform</title>
     <style>
         * {
             margin: 0;
@@ -17,14 +17,16 @@
             --black: #000000;
             --white: #ffffff;
             --grey: #808080;
+            --dark-grey: #1a1a1a;
+            --light-grey: #cccccc;
             --primary-color: var(--sage);
             --secondary-color: var(--ebony);
-            --accent-color: var(--sage);
+            --accent-color: #7ba35f;
             --dark-bg: var(--black);
-            --card-bg: var(--ebony);
+            --card-bg: rgba(44, 44, 44, 0.8);
             --text-light: var(--white);
-            --text-muted: var(--grey);
-            --border-color: var(--grey);
+            --text-muted: #b0b0b0;
+            --border-color: rgba(156, 175, 136, 0.2);
             --success-color: var(--sage);
             --hover-scale: 1.05;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -33,10 +35,9 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(156, 175, 136, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(44, 44, 44, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(128, 128, 128, 0.1) 0%, transparent 50%),
-                linear-gradient(135deg, var(--black) 0%, var(--ebony) 50%, var(--black) 100%);
+                radial-gradient(circle at 20% 80%, rgba(156, 175, 136, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(44, 44, 44, 0.4) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
             background-attachment: fixed;
             min-height: 100vh;
             color: var(--text-light);
@@ -53,52 +54,35 @@
             height: 100%;
             background: 
                 repeating-linear-gradient(
-                    45deg,
+                    0deg,
                     transparent,
-                    transparent 100px,
-                    rgba(156, 175, 136, 0.02) 100px,
-                    rgba(156, 175, 136, 0.02) 101px
+                    transparent 2px,
+                    rgba(156, 175, 136, 0.03) 2px,
+                    rgba(156, 175, 136, 0.03) 4px
                 );
-            z-index: -1;
+            z-index: 0;
+            pointer-events: none;
         }
 
-        /* Animated Background */
-        .bg-animation {
+        /* Animated Background Grid */
+        .bg-grid {
             position: fixed;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
             z-index: 0;
-            opacity: 0.5;
-            overflow: hidden;
+            opacity: 0.15;
+            background-image: 
+                linear-gradient(rgba(156, 175, 136, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(156, 175, 136, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
         }
 
-        .bg-animation::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(156, 175, 136, 0.1) 0%, transparent 70%);
-            animation: rotate 30s linear infinite;
-        }
-
-        .bg-animation::after {
-            content: '';
-            position: absolute;
-            bottom: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(44, 44, 44, 0.2) 0%, transparent 70%);
-            animation: rotate 25s linear infinite reverse;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
 
         /* Floating particles */
@@ -110,125 +94,307 @@
             height: 100%;
             overflow: hidden;
             z-index: 1;
+            pointer-events: none;
         }
 
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.5);
+            width: 3px;
+            height: 3px;
+            background: rgba(156, 175, 136, 0.6);
             border-radius: 50%;
-            animation: float 20s infinite linear;
+            animation: float 25s infinite linear;
+            box-shadow: 0 0 10px rgba(156, 175, 136, 0.5);
         }
 
         @keyframes float {
             0% {
-                transform: translateY(100vh) translateX(0);
+                transform: translateY(100vh) translateX(0) scale(0);
                 opacity: 0;
             }
             10% {
                 opacity: 1;
+                transform: translateY(90vh) translateX(10px) scale(1);
             }
             90% {
                 opacity: 1;
             }
             100% {
-                transform: translateY(-100vh) translateX(100px);
+                transform: translateY(-10vh) translateX(100px) scale(0);
                 opacity: 0;
             }
         }
 
         /* Main Container */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 2rem;
             position: relative;
             z-index: 10;
         }
 
-        /* Header */
-        header {
-            text-align: center;
-            padding: 4rem 0 3rem;
+        /* Navigation */
+        nav {
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             animation: fadeInDown 0.8s ease-out;
         }
 
-        .logo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 2rem;
-            background: 
-                radial-gradient(circle at 30% 30%, var(--white) 0%, var(--sage) 70%, var(--ebony) 100%),
-                conic-gradient(from 45deg, var(--sage), var(--white), var(--sage), var(--ebony));
-            border-radius: 20px;
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav-logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--sage), var(--accent-color));
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(156, 175, 136, 0.3);
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(156, 175, 136, 0.4);
+            border: 2px solid rgba(156, 175, 136, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 6rem 0 4rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(156, 175, 136, 0.1);
+            border: 1px solid rgba(156, 175, 136, 0.3);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
             animation: pulse 2s infinite;
-            border: 2px solid var(--sage);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(156, 175, 136, 0.4); }
+            50% { transform: scale(1.02); box-shadow: 0 0 20px 5px rgba(156, 175, 136, 0.2); }
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--sage) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--sage), var(--accent-color));
+            color: white;
+            box-shadow: 0 10px 30px rgba(156, 175, 136, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(156, 175, 136, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(156, 175, 136, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Security Badges */
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .badge-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 6rem 0;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
         }
 
-        .logo::before {
+        .feature-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: repeating-conic-gradient(
-                from 0deg at 50% 50%,
-                transparent 0deg,
-                rgba(156, 175, 136, 0.1) 45deg,
-                transparent 90deg
-            );
-            animation: rotate 10s linear infinite;
+            height: 3px;
+            background: linear-gradient(90deg, var(--sage), var(--accent-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .feature-card:hover::before {
+            transform: scaleX(1);
         }
 
-        h1 {
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 40px rgba(156, 175, 136, 0.2);
+        }
+
+        .feature-icon {
             font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 1.5rem;
+            display: block;
         }
 
-        .subtitle {
-            font-size: 1.25rem;
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .feature-description {
             color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
             line-height: 1.6;
         }
 
-        /* App Cards Grid */
+        /* Apps Section */
+        .apps-section {
+            padding: 6rem 0;
+        }
+
         .apps-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
             margin-top: 4rem;
-            padding: 0 1rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .app-card {
-            background: linear-gradient(135deg, var(--card-bg), rgba(156, 175, 136, 0.1));
-            border-radius: 20px;
-            padding: 2.5rem;
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 0;
             position: relative;
             overflow: hidden;
             border: 1px solid var(--border-color);
@@ -236,104 +402,115 @@
             animation: fadeInUp 0.8s ease-out;
             animation-fill-mode: both;
             backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
         .app-card:nth-child(1) { animation-delay: 0.1s; }
         .app-card:nth-child(2) { animation-delay: 0.2s; }
         .app-card:nth-child(3) { animation-delay: 0.3s; }
 
-        .app-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .app-card:hover::before {
-            transform: scaleX(1);
-        }
-
         .app-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(156, 175, 136, 0.3);
+            box-shadow: 0 20px 50px rgba(156, 175, 136, 0.3);
             border-color: var(--primary-color);
         }
 
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 25px;
+        .app-image-container {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(156, 175, 136, 0.1), rgba(44, 44, 44, 0.3));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 10px 20px rgba(156, 175, 136, 0.2);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: var(--transition);
-            border: 2px solid var(--white);
         }
 
-        .app-card:hover .app-icon {
-            transform: scale(1.1) rotate(5deg);
+        .app-card:hover .app-image-container img {
+            transform: scale(1.05);
         }
 
-        .app-card:nth-child(2) .app-icon {
-            background: linear-gradient(135deg, var(--ebony), var(--sage));
+        .app-icon-placeholder {
+            font-size: 5rem;
+            opacity: 0.5;
         }
 
-        .app-card:nth-child(3) .app-icon {
-            background: linear-gradient(135deg, var(--sage), var(--grey));
+        .app-content {
+            padding: 2.5rem;
         }
 
         .app-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            text-align: center;
-            color: var(--text-light);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
         }
 
         .app-description {
             color: var(--text-muted);
-            text-align: center;
             margin-bottom: 2rem;
-            line-height: 1.6;
-            min-height: 60px;
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
         .platforms {
             display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            margin-bottom: 1.5rem;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
         .platform-badge {
-            background: rgba(156, 175, 136, 0.1);
+            background: rgba(156, 175, 136, 0.15);
             color: var(--primary-color);
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 20px;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             border: 1px solid rgba(156, 175, 136, 0.3);
             transition: var(--transition);
+            font-weight: 500;
         }
 
         .platform-badge:hover {
-            background: rgba(156, 175, 136, 0.2);
+            background: rgba(156, 175, 136, 0.25);
             transform: scale(1.05);
+        }
+
+        .app-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .app-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .app-feature::before {
+            content: '✓';
+            color: var(--success-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         .download-btn {
             width: 100%;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, var(--sage), var(--accent-color));
             color: white;
             border: none;
             border-radius: 50px;
@@ -343,9 +520,10 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .download-btn::before {
@@ -362,13 +540,13 @@
         }
 
         .download-btn:hover::before {
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
         }
 
         .download-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(156, 175, 136, 0.4);
+            box-shadow: 0 10px 30px rgba(156, 175, 136, 0.5);
         }
 
         .download-btn span {
@@ -376,43 +554,68 @@
             z-index: 1;
         }
 
-        /* Features */
-        .features {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
+        /* Why Choose Us Section */
+        .why-choose-section {
+            padding: 6rem 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(156, 175, 136, 0.05) 50%, transparent 100%);
         }
 
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--sage), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
             color: var(--text-muted);
-            font-size: 0.875rem;
-        }
-
-        .feature::before {
-            content: '✓';
-            color: var(--success-color);
-            font-weight: bold;
+            font-size: 1.1rem;
         }
 
         /* Footer */
         footer {
             text-align: center;
             margin-top: 6rem;
-            padding: 2rem 0 3rem;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color);
             color: var(--text-muted);
             animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .footer-links {
             display: flex;
             gap: 2rem;
-            justify-content: center;
-            margin-top: 1rem;
+            flex-wrap: wrap;
         }
 
         .footer-link {
@@ -423,6 +626,11 @@
 
         .footer-link:hover {
             color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(156, 175, 136, 0.1);
         }
 
         /* Animations */
@@ -456,201 +664,312 @@
         /* Responsive */
         @media (max-width: 1200px) {
             .apps-grid {
-                gap: 1.5rem;
-                padding: 0 0.5rem;
-            }
-            
-            .app-card {
-                padding: 2rem;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             }
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
-            
-            .apps-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
-                padding: 0 0.5rem;
-            }
-            
-            .app-card {
-                padding: 1.5rem;
-            }
-            
-            .app-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-            
-            .app-name {
+
+            .hero-subtitle {
                 font-size: 1.2rem;
             }
-            
-            .app-description {
-                font-size: 0.9rem;
-                min-height: 80px;
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .apps-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
             }
         }
 
         @media (max-width: 480px) {
-            .apps-grid {
-                gap: 0.5rem;
-                padding: 0 0.25rem;
+            h1 {
+                font-size: 2rem;
             }
-            
-            .app-card {
-                padding: 1rem;
-            }
-            
-            .app-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-            
-            .app-name {
+
+            .hero-subtitle {
                 font-size: 1rem;
             }
-            
-            .app-description {
-                font-size: 0.8rem;
-                min-height: 60px;
-            }
-            
-            .platform-badge {
-                padding: 0.3rem 0.6rem;
-                font-size: 0.75rem;
-            }
-            
-            .download-btn {
-                padding: 0.8rem 1rem;
-                font-size: 0.9rem;
-            }
-        }
 
-        /* Coming Soon Badge */
-        .coming-soon {
-            position: absolute;
-            top: 20px;
-            right: -30px;
-            background: var(--accent-color);
-            color: white;
-            padding: 0.5rem 3rem;
-            transform: rotate(45deg);
-            font-size: 0.75rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-        }
+            .app-content {
+                padding: 1.5rem;
+            }
 
-        /* Download Icon Animation */
-        @keyframes downloadIcon {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(3px); }
-        }
+            .stat-number {
+                font-size: 2.5rem;
+            }
 
-        .download-icon {
-            display: inline-block;
-            animation: downloadIcon 1.5s infinite;
-            margin-left: 0.5rem;
+            .security-badges {
+                gap: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="bg-animation"></div>
+    <!-- Background Grid -->
+    <div class="bg-grid"></div>
     
     <!-- Floating Particles -->
     <div class="particles" id="particles"></div>
 
+    <!-- Navigation -->
+    <nav class="container">
+        <div class="nav-brand">
+            <div class="nav-logo">🔐</div>
+            <span>SigSecSpec</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#features" class="nav-link">Features</a></li>
+            <li><a href="#apps" class="nav-link">Our Apps</a></li>
+            <li><a href="#security" class="nav-link">Security</a></li>
+            <li><a href="#support" class="nav-link">Support</a></li>
+        </ul>
+    </nav>
+
     <!-- Main Container -->
     <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="logo">📱</div>
-            <h1>Download Our Apps</h1>
-            <p class="subtitle">Powerful tools designed to enhance your productivity and streamline your workflow. Available across all major platforms.</p>
-        </header>
-
-        <!-- Apps Grid -->
-        <div class="apps-grid">
-            <!-- Operations Platform -->
-            <div class="app-card">
-                <div class="app-icon">🎯</div>
-                <h2 class="app-name">Operations Platform</h2>
-                <p class="app-description">Streamline your business operations with our comprehensive management system. Features real-time analytics, automated workflows, and enterprise-grade security for complete operational control.</p>
-                <div class="platforms">
-                    <span class="platform-badge">Windows</span>
-                    <span class="platform-badge">macOS</span>
-                    <span class="platform-badge">Linux</span>
-                </div>
-                <div class="features">
-                    <span class="feature">Real-time Analytics</span>
-                    <span class="feature">Cloud Sync</span>
-                    <span class="feature">24/7 Support</span>
-                </div>
-                <button class="download-btn" onclick="downloadApp('operations')">
-                    <span>Download Now <span class="download-icon">↓</span></span>
-                </button>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-badge">🛡️ Enterprise-Grade Digital Security</div>
+            <h1>Signature Security<br>Specialist Platform</h1>
+            <p class="hero-subtitle">Comprehensive digital security solution protecting your organization with advanced threat detection, secure communications, and intelligent monitoring across all your devices and platforms.</p>
+            <div class="cta-buttons">
+                <a href="#apps" class="btn-primary">
+                    <span>Download Apps</span>
+                    <span>→</span>
+                </a>
+                <a href="#features" class="btn-secondary">
+                    <span>Learn More</span>
+                </a>
             </div>
-
-            <!-- Companion App -->
-            <div class="app-card">
-                <div class="app-icon">🤝</div>
-                <h2 class="app-name">Companion App</h2>
-                <p class="app-description">Your intelligent mobile companion that seamlessly integrates with all your devices. AI-powered assistance, smart notifications, and collaborative tools that keep you connected and productive wherever you go.</p>
-                <div class="platforms">
-                    <span class="platform-badge">iOS</span>
-                    <span class="platform-badge">Android</span>
-                    <span class="platform-badge">Web</span>
+            
+            <!-- Security Badges -->
+            <div class="security-badges">
+                <div class="badge">
+                    <div class="badge-icon">🔒</div>
+                    <div class="badge-text">256-bit Encryption</div>
                 </div>
-                <div class="features">
-                    <span class="feature">Cross-Platform</span>
-                    <span class="feature">Offline Mode</span>
-                    <span class="feature">AI-Powered</span>
+                <div class="badge">
+                    <div class="badge-icon">✓</div>
+                    <div class="badge-text">ISO 27001 Certified</div>
                 </div>
-                <button class="download-btn" onclick="downloadApp('companion')">
-                    <span>Download Now <span class="download-icon">↓</span></span>
-                </button>
+                <div class="badge">
+                    <div class="badge-icon">🛡️</div>
+                    <div class="badge-text">Zero-Trust Architecture</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">⚡</div>
+                    <div class="badge-text">Real-time Protection</div>
+                </div>
             </div>
+        </section>
 
-            <!-- Messenger App -->
-            <div class="app-card">
-                <div class="app-icon">💬</div>
-                <h2 class="app-name">Messenger App</h2>
-                <p class="app-description">Experience next-generation secure messaging with military-grade encryption. Share files, create group chats, make voice calls, and collaborate in real-time with confidence and privacy.</p>
-                <div class="platforms">
-                    <span class="platform-badge">iOS</span>
-                    <span class="platform-badge">Android</span>
-                    <span class="platform-badge">Desktop</span>
-                </div>
-                <div class="features">
-                    <span class="feature">End-to-End Encryption</span>
-                    <span class="feature">Group Chats</span>
-                    <span class="feature">File Sharing</span>
-                </div>
-                <button class="download-btn" onclick="downloadApp('messenger')">
-                    <span>Download Now <span class="download-icon">↓</span></span>
-                </button>
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="section-header">
+                <h2 class="section-title">Advanced Security Features</h2>
+                <p class="section-subtitle">Built with cutting-edge technology to protect your digital assets and ensure complete peace of mind</p>
             </div>
-        </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🔐</span>
+                    <h3 class="feature-title">End-to-End Encryption</h3>
+                    <p class="feature-description">Military-grade encryption ensures your data remains secure from unauthorized access, both in transit and at rest.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h3 class="feature-title">Threat Detection</h3>
+                    <p class="feature-description">AI-powered threat detection identifies and neutralizes security risks before they can impact your operations.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h3 class="feature-title">Real-time Monitoring</h3>
+                    <p class="feature-description">Comprehensive monitoring dashboard provides instant visibility into your security posture across all platforms.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <h3 class="feature-title">Automatic Updates</h3>
+                    <p class="feature-description">Stay protected with automatic security patches and updates delivered seamlessly in the background.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🌐</span>
+                    <h3 class="feature-title">Multi-Platform Sync</h3>
+                    <p class="feature-description">Seamlessly sync security policies and settings across all your devices and platforms.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">👥</span>
+                    <h3 class="feature-title">Team Collaboration</h3>
+                    <p class="feature-description">Secure collaboration tools enable your team to work together without compromising security.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apps Section -->
+        <section id="apps" class="apps-section">
+            <div class="section-header">
+                <h2 class="section-title">Complete Security Suite</h2>
+                <p class="section-subtitle">Three powerful applications working together to provide comprehensive protection for your digital ecosystem</p>
+            </div>
+            <div class="apps-grid">
+                <!-- Signature Security Specialist App -->
+                <div class="app-card">
+                    <div class="app-image-container">
+                        <img src="SignatureSecuritySpecialist.png" alt="Signature Security Specialist" onerror="this.parentElement.innerHTML='<span class=\'app-icon-placeholder\'>🔐</span>'">
+                    </div>
+                    <div class="app-content">
+                        <h2 class="app-name">Signature Security Specialist</h2>
+                        <p class="app-description">The flagship desktop application providing comprehensive security management, advanced threat analysis, and complete control over your organization's digital security infrastructure.</p>
+                        <div class="platforms">
+                            <span class="platform-badge">Windows</span>
+                            <span class="platform-badge">macOS</span>
+                            <span class="platform-badge">Linux</span>
+                        </div>
+                        <div class="app-features">
+                            <span class="app-feature">Advanced threat detection & analysis</span>
+                            <span class="app-feature">Centralized security dashboard</span>
+                            <span class="app-feature">Automated security protocols</span>
+                            <span class="app-feature">Network monitoring & firewall</span>
+                            <span class="app-feature">Compliance reporting & auditing</span>
+                        </div>
+                        <button class="download-btn" onclick="downloadApp('security-specialist')">
+                            <span>Download for Desktop</span>
+                            <span>↓</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Companion App -->
+                <div class="app-card">
+                    <div class="app-image-container">
+                        <img src="SigSecSpec-Companion.png" alt="SigSecSpec Companion" onerror="this.parentElement.innerHTML='<span class=\'app-icon-placeholder\'>📱</span>'">
+                    </div>
+                    <div class="app-content">
+                        <h2 class="app-name">SigSecSpec Companion</h2>
+                        <p class="app-description">Your mobile security companion that keeps you protected on the go. Monitor alerts, manage security settings, and respond to threats from anywhere, anytime with our intelligent mobile solution.</p>
+                        <div class="platforms">
+                            <span class="platform-badge">iOS</span>
+                            <span class="platform-badge">Android</span>
+                            <span class="platform-badge">Tablet</span>
+                        </div>
+                        <div class="app-features">
+                            <span class="app-feature">Real-time security alerts</span>
+                            <span class="app-feature">Remote threat response</span>
+                            <span class="app-feature">Biometric authentication</span>
+                            <span class="app-feature">Secure file access & sharing</span>
+                            <span class="app-feature">Offline security monitoring</span>
+                        </div>
+                        <button class="download-btn" onclick="downloadApp('companion')">
+                            <span>Download for Mobile</span>
+                            <span>↓</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Messenger App -->
+                <div class="app-card">
+                    <div class="app-image-container">
+                        <img src="SigSecSpec-Messanger.png" alt="SigSecSpec Messenger" onerror="this.parentElement.innerHTML='<span class=\'app-icon-placeholder\'>💬</span>'">
+                    </div>
+                    <div class="app-content">
+                        <h2 class="app-name">SigSecSpec Messenger</h2>
+                        <p class="app-description">Ultra-secure communication platform with military-grade encryption. Share sensitive information, collaborate with your team, and conduct secure video calls with complete confidence and privacy.</p>
+                        <div class="platforms">
+                            <span class="platform-badge">iOS</span>
+                            <span class="platform-badge">Android</span>
+                            <span class="platform-badge">Desktop</span>
+                            <span class="platform-badge">Web</span>
+                        </div>
+                        <div class="app-features">
+                            <span class="app-feature">End-to-end encrypted messaging</span>
+                            <span class="app-feature">Secure voice & video calls</span>
+                            <span class="app-feature">Self-destructing messages</span>
+                            <span class="app-feature">Encrypted file transfers</span>
+                            <span class="app-feature">Group collaboration spaces</span>
+                        </div>
+                        <button class="download-btn" onclick="downloadApp('messenger')">
+                            <span>Download Messenger</span>
+                            <span>↓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section id="security" class="why-choose-section">
+            <div class="section-header">
+                <h2 class="section-title">Trusted by Security Professionals Worldwide</h2>
+                <p class="section-subtitle">Our platform protects organizations of all sizes with enterprise-grade security solutions</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">500K+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Security Monitoring</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+            </div>
+        </section>
 
         <!-- Footer -->
-        <footer>
-            <p>&copy; 2024 All Rights Reserved. Built with passion and innovation.</p>
-            <div class="footer-links">
-                <a href="#" class="footer-link">Privacy Policy</a>
-                <a href="#" class="footer-link">Terms of Service</a>
-                <a href="#" class="footer-link">Support</a>
-                <a href="#" class="footer-link">Contact</a>
+        <footer id="support">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="nav-logo">🔐</div>
+                    <span style="font-weight: 600;">Signature Security Specialist</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Documentation</a>
+                    <a href="#" class="footer-link">Support Center</a>
+                    <a href="#" class="footer-link">Contact Us</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Signature Security Specialist. All Rights Reserved. Built with enterprise-grade security and innovation.</p>
             </div>
         </footer>
     </div>
@@ -659,50 +978,43 @@
         // Create floating particles
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
+            const particleCount = 40;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particle.style.animationDelay = Math.random() * 25 + 's';
+                particle.style.animationDuration = (20 + Math.random() * 15) + 's';
                 particlesContainer.appendChild(particle);
             }
         }
 
-        // Download function
+        // Download function with enhanced feedback
         function downloadApp(appName) {
-            // Show download animation
             const btn = event.currentTarget;
-            const originalText = btn.innerHTML;
+            const originalHTML = btn.innerHTML;
             btn.innerHTML = '<span>Preparing Download...</span>';
             btn.style.pointerEvents = 'none';
+            btn.style.opacity = '0.8';
             
-            // Simulate download preparation
             setTimeout(() => {
-                btn.innerHTML = '<span>Download Started! ✓</span>';
-                btn.style.background = 'linear-gradient(135deg, var(--sage), var(--ebony))';
+                btn.innerHTML = '<span>✓ Download Ready!</span>';
+                btn.style.background = 'linear-gradient(135deg, #7ba35f, #9caf88)';
                 
-                // Reset button after animation
                 setTimeout(() => {
-                    btn.innerHTML = originalText;
+                    btn.innerHTML = originalHTML;
                     btn.style.pointerEvents = 'auto';
-                    btn.style.background = 'linear-gradient(135deg, var(--primary-color), var(--secondary-color))';
-                }, 2000);
+                    btn.style.opacity = '1';
+                    btn.style.background = 'linear-gradient(135deg, var(--sage), var(--accent-color))';
+                }, 2500);
                 
-                // In a real application, you would trigger the actual download here
-                console.log(`Downloading ${appName} app...`);
-                
-                // Example of how to trigger a real download:
-                // const link = document.createElement('a');
-                // link.href = `/downloads/${appName}-installer.exe`;
-                // link.download = `${appName}-installer.exe`;
-                // link.click();
-            }, 1000);
+                console.log(`Downloading ${appName}...`);
+                // Real download implementation would go here
+            }, 1200);
         }
 
-        // Add smooth scroll behavior
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -721,33 +1033,54 @@
             createParticles();
         });
 
-        // Add parallax effect on scroll
+        // Parallax effect for background
+        let ticking = false;
         window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.bg-animation');
-            if (parallax) {
-                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    const bgGrid = document.querySelector('.bg-grid');
+                    if (bgGrid) {
+                        bgGrid.style.transform = `translateY(${scrolled * 0.3}px)`;
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         });
 
-        // Add intersection observer for fade-in animations
+        // Intersection observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animation = entry.target.dataset.animation || 'fadeInUp 0.8s ease-out both';
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        // Observe app cards for animation
-        document.querySelectorAll('.app-card').forEach(card => {
-            observer.observe(card);
+        // Observe elements for animation
+        document.querySelectorAll('.app-card, .feature-card, .stat-card').forEach(element => {
+            observer.observe(element);
         });
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                // Close any open modals or menus
+                console.log('Escape key pressed');
+            }
+        });
+
+        // Performance optimization: Reduce animations on low-end devices
+        if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+            document.body.style.setProperty('--transition', 'all 0.2s ease');
+        }
     </script>
 </body>
 </html>
